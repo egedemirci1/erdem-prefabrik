@@ -1,0 +1,9 @@
+{
+  "status": 307,
+  "headers": {
+    "location": "/prefabrik-celik?category=santiye",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/prefabrik-celik/layout,_N_T_/prefabrik-celik/santiye-ozel-kullanim/layout,_N_T_/prefabrik-celik/santiye-ozel-kullanim/page,_N_T_/prefabrik-celik/santiye-ozel-kullanim"
+  }
+}

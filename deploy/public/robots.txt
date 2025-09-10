@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://erdemprefabrik.com
+
+# Sitemaps
+Sitemap: https://erdemprefabrik.com/sitemap.xml

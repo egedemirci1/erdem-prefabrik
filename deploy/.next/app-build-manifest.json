@@ -1,0 +1,247 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/_not-found/page-a7e861f61ab3d245.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/css/75f466ba453468d0.css",
+      "static/chunks/app/layout-ad123824c49d0fda.js"
+    ],
+    "/api/projects/route": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/api/projects/route-79148f6f91d1c8cc.js"
+    ],
+    "/api/pimg/route": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/api/pimg/route-79148f6f91d1c8cc.js"
+    ],
+    "/api/contact/route": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/api/contact/route-79148f6f91d1c8cc.js"
+    ],
+    "/api/subscribe/route": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/api/subscribe/route-79148f6f91d1c8cc.js"
+    ],
+    "/gizlilik/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/gizlilik/page-b0ce6a0ecb79fb22.js"
+    ],
+    "/kullanim-kosullari/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/kullanim-kosullari/page-86d36c42e802aa6f.js"
+    ],
+    "/hakkimizda/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/hakkimizda/page-e172631f28f5056a.js"
+    ],
+    "/iletisim/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/iletisim/page-1edc7135b9391085.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/page-f578e1397abc0870.js"
+    ],
+    "/konteyner/layout": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/konteyner/layout-79148f6f91d1c8cc.js"
+    ],
+    "/konteyner/wc-dus-kabini/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/konteyner/wc-dus-kabini/page-79148f6f91d1c8cc.js"
+    ],
+    "/konteyner/ev/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/konteyner/ev/page-79148f6f91d1c8cc.js"
+    ],
+    "/konteyner/guvenlik-kulubesi/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/konteyner/guvenlik-kulubesi/page-79148f6f91d1c8cc.js"
+    ],
+    "/konteyner/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/konteyner/page-0b8409e5b9355e8b.js"
+    ],
+    "/konteyner/ofis/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/konteyner/ofis/page-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/layout": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/layout-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/bungalow/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/bungalow/page-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/moduler/page-e3d53c0dd698aa68.js"
+    ],
+    "/moduler/moduler-ev/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/moduler-ev/page-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/ofis/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/ofis/page-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/tiny-house/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/tiny-house/page-79148f6f91d1c8cc.js"
+    ],
+    "/moduler/sifir-atik/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/moduler/sifir-atik/page-79148f6f91d1c8cc.js"
+    ],
+    "/prefabrik-celik/layout": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/prefabrik-celik/layout-79148f6f91d1c8cc.js"
+    ],
+    "/prefabrik-celik/prefabrik-ev-villa/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/prefabrik-celik/prefabrik-ev-villa/page-79148f6f91d1c8cc.js"
+    ],
+    "/prefabrik-celik/celik-ev-villa/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/prefabrik-celik/celik-ev-villa/page-79148f6f91d1c8cc.js"
+    ],
+    "/prefabrik-celik/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/prefabrik-celik/page-189cb424e6ffb6c0.js"
+    ],
+    "/prefabrik-celik/santiye-ozel-kullanim/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/prefabrik-celik/santiye-ozel-kullanim/page-79148f6f91d1c8cc.js"
+    ],
+    "/prefabrik-celik/prefabrik-santiye-yapilari/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/prefabrik-celik/prefabrik-santiye-yapilari/page-79148f6f91d1c8cc.js"
+    ],
+    "/projeler/layout": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/app/projeler/layout-79148f6f91d1c8cc.js"
+    ],
+    "/projeler/page": [
+      "static/chunks/webpack-9d1419c5e6d10d33.js",
+      "static/chunks/4bd1b696-cf72ae8a39fa05aa.js",
+      "static/chunks/964-7a34cadcb7695cec.js",
+      "static/chunks/main-app-0f0c0fff0b768f9b.js",
+      "static/chunks/342-4633b64cd03f35e8.js",
+      "static/chunks/454-e0b5581f8daab490.js",
+      "static/chunks/app/projeler/page-d6bd1e137e1f9f90.js"
+    ]
+  }
+}

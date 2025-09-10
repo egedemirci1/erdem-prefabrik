@@ -1,0 +1,9 @@
+{
+  "status": 307,
+  "headers": {
+    "location": "/moduler?category=bungalow",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/moduler/layout,_N_T_/moduler/bungalow/layout,_N_T_/moduler/bungalow/page,_N_T_/moduler/bungalow"
+  }
+}

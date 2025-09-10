@@ -1,0 +1,185 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/gizlilik",
+      "regex": "^/gizlilik(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/gizlilik(?:/)?$"
+    },
+    {
+      "page": "/hakkimizda",
+      "regex": "^/hakkimizda(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hakkimizda(?:/)?$"
+    },
+    {
+      "page": "/iletisim",
+      "regex": "^/iletisim(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/iletisim(?:/)?$"
+    },
+    {
+      "page": "/konteyner",
+      "regex": "^/konteyner(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konteyner(?:/)?$"
+    },
+    {
+      "page": "/konteyner/ev",
+      "regex": "^/konteyner/ev(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konteyner/ev(?:/)?$"
+    },
+    {
+      "page": "/konteyner/guvenlik-kulubesi",
+      "regex": "^/konteyner/guvenlik\\-kulubesi(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konteyner/guvenlik\\-kulubesi(?:/)?$"
+    },
+    {
+      "page": "/konteyner/ofis",
+      "regex": "^/konteyner/ofis(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konteyner/ofis(?:/)?$"
+    },
+    {
+      "page": "/konteyner/wc-dus-kabini",
+      "regex": "^/konteyner/wc\\-dus\\-kabini(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konteyner/wc\\-dus\\-kabini(?:/)?$"
+    },
+    {
+      "page": "/kullanim-kosullari",
+      "regex": "^/kullanim\\-kosullari(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kullanim\\-kosullari(?:/)?$"
+    },
+    {
+      "page": "/moduler",
+      "regex": "^/moduler(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler(?:/)?$"
+    },
+    {
+      "page": "/moduler/bungalow",
+      "regex": "^/moduler/bungalow(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler/bungalow(?:/)?$"
+    },
+    {
+      "page": "/moduler/moduler-ev",
+      "regex": "^/moduler/moduler\\-ev(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler/moduler\\-ev(?:/)?$"
+    },
+    {
+      "page": "/moduler/ofis",
+      "regex": "^/moduler/ofis(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler/ofis(?:/)?$"
+    },
+    {
+      "page": "/moduler/sifir-atik",
+      "regex": "^/moduler/sifir\\-atik(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler/sifir\\-atik(?:/)?$"
+    },
+    {
+      "page": "/moduler/tiny-house",
+      "regex": "^/moduler/tiny\\-house(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moduler/tiny\\-house(?:/)?$"
+    },
+    {
+      "page": "/prefabrik-celik",
+      "regex": "^/prefabrik\\-celik(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prefabrik\\-celik(?:/)?$"
+    },
+    {
+      "page": "/prefabrik-celik/celik-ev-villa",
+      "regex": "^/prefabrik\\-celik/celik\\-ev\\-villa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prefabrik\\-celik/celik\\-ev\\-villa(?:/)?$"
+    },
+    {
+      "page": "/prefabrik-celik/prefabrik-ev-villa",
+      "regex": "^/prefabrik\\-celik/prefabrik\\-ev\\-villa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prefabrik\\-celik/prefabrik\\-ev\\-villa(?:/)?$"
+    },
+    {
+      "page": "/prefabrik-celik/prefabrik-santiye-yapilari",
+      "regex": "^/prefabrik\\-celik/prefabrik\\-santiye\\-yapilari(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prefabrik\\-celik/prefabrik\\-santiye\\-yapilari(?:/)?$"
+    },
+    {
+      "page": "/prefabrik-celik/santiye-ozel-kullanim",
+      "regex": "^/prefabrik\\-celik/santiye\\-ozel\\-kullanim(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prefabrik\\-celik/santiye\\-ozel\\-kullanim(?:/)?$"
+    },
+    {
+      "page": "/projeler",
+      "regex": "^/projeler(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/projeler(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

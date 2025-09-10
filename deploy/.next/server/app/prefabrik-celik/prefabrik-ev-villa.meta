@@ -1,0 +1,9 @@
+{
+  "status": 307,
+  "headers": {
+    "location": "/prefabrik-celik?category=prefabrik-ev-villa",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/prefabrik-celik/layout,_N_T_/prefabrik-celik/prefabrik-ev-villa/layout,_N_T_/prefabrik-celik/prefabrik-ev-villa/page,_N_T_/prefabrik-celik/prefabrik-ev-villa"
+  }
+}
