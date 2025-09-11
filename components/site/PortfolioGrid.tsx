@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import projectsData from '@/data/projects.json';
 
 const PortfolioGrid = () => {
   type PortfolioItem = {
@@ -16,71 +17,17 @@ const PortfolioGrid = () => {
     location: string;
     image: string;
     images: string[];
+    category: string;
   };
 
   const [items, setItems] = useState<PortfolioItem[]>([]);
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   useEffect(() => {
-    // Static data - API çağrısı kaldırıldı
-    const staticProjects = [
-      {
-        id: "1",
-        title: "Prefabrik Ev Villa",
-        description: "Modern ve estetik prefabrik ev çözümü",
-        specs: "115 m² • 3+1",
-        location: "Konya",
-        image: "/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/ALİ YAVUZ 115-M2/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/ALİ YAVUZ 115-M2/1_Photo - 1.jpg"]
-      },
-      {
-        id: "2", 
-        title: "Modüler Ofis",
-        description: "Esnek ve özelleştirilebilir modüler ofis",
-        specs: "100 m² • Ofis",
-        location: "Konya",
-        image: "/images/projects/1-URUN-GORSELLERI/6-MODULER/100 M2-OFİS/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/6-MODULER/100 M2-OFİS/1_Photo - 1.jpg"]
-      },
-      {
-        id: "3",
-        title: "Konteyner Ev",
-        description: "Pratik ve mobil konteyner çözümü",
-        specs: "35 m² • 1+1",
-        location: "Konya", 
-        image: "/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/1-STANDART/3,5X10/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/1-STANDART/3,5X10/1_Photo - 1.jpg"]
-      },
-      {
-        id: "4",
-        title: "Tiny House",
-        description: "Kompakt ve şık tiny house",
-        specs: "20 m² • 1+0",
-        location: "Konya",
-        image: "/images/projects/1-URUN-GORSELLERI/4-TINY HOUSE VE MOBİL YAPILAR/Tinyhouse-TİNY HİLLS-2.5X8/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/4-TINY HOUSE VE MOBİL YAPILAR/Tinyhouse-TİNY HİLLS-2.5X8/1_Photo - 1.jpg"]
-      },
-      {
-        id: "5",
-        title: "Çelik Yapı",
-        description: "Dayanıklı çelik yapı çözümü",
-        specs: "137 m² • Villa",
-        location: "Konya",
-        image: "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/AYŞE GÜNER-YUNAK-137 ÇELİKEV/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/AYŞE GÜNER-YUNAK-137 ÇELİKEV/1_Photo - 1.jpg"]
-      },
-      {
-        id: "6",
-        title: "Şantiye Yapısı",
-        description: "Geçici şantiye yapısı",
-        specs: "205 m² • İdari Bina",
-        location: "Karaman",
-        image: "/images/projects/1-URUN-GORSELLERI/5-ŞANTIYE VE OZEL KULLANIM/KARAMAN KARSEL İNŞAAT-KARAMAN-İDARİ BİNA 205 M2/1_Photo - 1.jpg",
-        images: ["/images/projects/1-URUN-GORSELLERI/5-ŞANTIYE VE OZEL KULLANIM/KARAMAN KARSEL İNŞAAT-KARAMAN-İDARİ BİNA 205 M2/1_Photo - 1.jpg"]
-      }
-    ];
-    setItems(staticProjects);
+    // Projeler verisinden ilk 8 projeyi al
+    const featuredProjects = (projectsData as PortfolioItem[]).slice(0, 8);
+    setItems(featuredProjects);
   }, []);
 
   return (
@@ -117,11 +64,20 @@ const PortfolioGrid = () => {
                 transition={{ duration: 0.3 }}
                 onClick={() => {
                   setSelectedProject(project);
-                  setCurrentImageIndex(0);
+                  setSelectedImageIdx(0);
                 }}
               >
                 <div className={`h-64 relative`}>
-                  <Image src={project.image} alt={project.title} fill sizes="(max-width:768px) 100vw, 25vw" className="object-cover" />
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    sizes="(max-width:768px) 100vw, 25vw" 
+                    className="object-cover" 
+                    onError={() => {
+                      console.error('Image failed to load:', project.image);
+                    }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
                 </div>
 
@@ -133,8 +89,6 @@ const PortfolioGrid = () => {
                   <h3 className="text-xl font-light text-foreground mb-2">
                     {project.title}
                   </h3>
-                  
-                  {/* Kategori satırı (açıklama) kaldırıldı */}
 
                   <div className="text-sm text-accent font-medium mb-4">
                     {project.specs}
@@ -149,7 +103,7 @@ const PortfolioGrid = () => {
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedProject(project);
-                        setCurrentImageIndex(0);
+                        setSelectedImageIdx(0);
                       }}
                     >
                       Detayları Gör
@@ -183,106 +137,52 @@ const PortfolioGrid = () => {
         </motion.div>
       </div>
 
-      {/* Modal Gallery */}
+      {/* Gallery Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="relative w-full max-w-5xl bg-white rounded-2xl overflow-hidden">
+            <div className="relative w-full h-[60vh]">
+              <Image
+                src={selectedProject.images[selectedImageIdx] || selectedProject.image}
+                alt={selectedProject.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                quality={90}
+                priority={true}
+                className="object-contain bg-black"
+                onError={() => {
+                  console.error('Modal image failed to load:', selectedProject.images[selectedImageIdx] || selectedProject.image);
+                }}
+              />
+            </div>
+            <div className="p-4 flex items-center justify-between">
               <div>
-                <h3 className="text-xl font-light text-foreground">{selectedProject.title}</h3>
-                <p className="text-sm text-muted-foreground">{selectedProject.location}</p>
+                <div className="text-lg font-medium">{selectedProject.title}</div>
+                <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
+                <div className="text-sm mt-2">{selectedProject.description}</div>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setSelectedProject(null)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <X className="h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Image Gallery */}
-            <div className="relative">
-              <div className="aspect-video relative">
-                <Image
-                  src={selectedProject.images[currentImageIndex] || selectedProject.image}
-                  alt={selectedProject.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 80vw"
-                  className="object-cover"
-                  quality={90}
-                />
+              <div className="flex items-center gap-2">
+                <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>
+                <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.min((selectedProject.images.length - 1), i + 1))}>Sonraki</Button>
+                <Button onClick={() => setSelectedProject(null)}>Kapat</Button>
               </div>
-
-              {/* Navigation */}
-              {selectedProject.images.length > 1 && (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
-                    onClick={() => setCurrentImageIndex((prev) => 
-                      prev === 0 ? selectedProject.images.length - 1 : prev - 1
-                    )}
-                  >
-                    ←
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
-                    onClick={() => setCurrentImageIndex((prev) => 
-                      prev === selectedProject.images.length - 1 ? 0 : prev + 1
-                    )}
-                  >
-                    →
-                  </Button>
-                </>
-              )}
             </div>
-
-            {/* Thumbnails */}
-            {selectedProject.images.length > 1 && (
-              <div className="p-4 border-t">
-                <div className="flex gap-2 overflow-x-auto">
-                  {selectedProject.images.map((img, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 ${
-                        index === currentImageIndex ? 'border-accent' : 'border-transparent'
-                      }`}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${selectedProject.title} - ${index + 1}`}
-                        width={64}
-                        height={64}
-                        className="object-cover w-full h-full"
-                      />
-                    </button>
-                  ))}
+            <div className="px-4 pb-4 grid grid-cols-6 gap-2 max-h-40 overflow-auto">
+              {selectedProject.images.map((img, idx) => (
+                <div key={img} className={`relative h-16 cursor-pointer rounded ${idx === selectedImageIdx ? 'ring-2 ring-accent' : ''}`} onClick={() => setSelectedImageIdx(idx)}>
+                  <Image 
+                    src={img} 
+                    alt={`thumb-${idx}`} 
+                    fill 
+                    sizes="(max-width: 768px) 15vw, 10vw" 
+                    quality={70}
+                    loading="lazy"
+                    className="object-cover" 
+                  />
                 </div>
-              </div>
-            )}
-
-            {/* Project Info */}
-            <div className="p-6 border-t">
-              <div className="text-sm text-accent font-medium mb-2">
-                {selectedProject.specs}
-              </div>
-              <p className="text-sm text-muted-foreground">
-                {selectedProject.description}
-              </p>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
     </section>

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -22,20 +23,22 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Formspree ile gönder
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('phone', formData.phone);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('message', formData.message);
-      
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        body: formDataToSend,
-      });
-      
-      if (!res.ok) {
-        alert('Gönderim başarısız');
+      // Supabase'e gönder
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            message: formData.message,
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        alert('Gönderim başarısız: ' + error.message);
         setIsSubmitting(false);
         return;
       }
@@ -46,7 +49,8 @@ const ContactForm = () => {
         setIsSubmitted(false);
         setFormData({ name: "", phone: "", email: "", message: "" });
       }, 2500);
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setIsSubmitting(false);
       alert('Sunucuya ulaşılamadı');
     }
