@@ -18,13 +18,13 @@ const Hero = () => {
       title: "Zerafetin Modüler Hali",
       subtitle: "Modern Yaşamın İhtiyaçlarına Uygun Ve Estetik Çözümler Sunuyoruz.",
       image:
-        "/images/projects/1-URUN-GORSELLERI/6-MODULER/EVLER/bungalow1/bilinmeyenm2.JPG",
+        "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow1/bilinmeyenm2.JPG",
     },
     {
       title: "Kaliteli Malzeme",
       subtitle: "Dayanıklı Ve Uzun Ömürlü Yapılar İçin 1. Kalite Malzeme Kullanıyoruz.",
       image:
-        "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/1-EVLER/casa erdem/2_Photo - 10.jpg",
+        "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/casa erdem/2_Photo - 10.jpg",
     },
     {
       title: "Hızlı Kurulum",
