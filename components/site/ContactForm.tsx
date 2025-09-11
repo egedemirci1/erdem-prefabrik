@@ -22,17 +22,24 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/contact', {
+      // Formspree ile gönder
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+      
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || data?.ok === false) {
-        alert(data?.error || 'Gönderim başarısız');
+      
+      if (!res.ok) {
+        alert('Gönderim başarısız');
         setIsSubmitting(false);
         return;
       }
+      
       setIsSubmitting(false);
       setIsSubmitted(true);
       setTimeout(() => {

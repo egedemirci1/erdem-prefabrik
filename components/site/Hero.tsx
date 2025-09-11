@@ -41,22 +41,7 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  useEffect(() => {
-    // Arka plan için farklı kategorilerden kapak görsellerini topla
-    (async () => {
-      try {
-        const res = await fetch("/api/projects");
-        const data = await res.json();
-        const list: { category?: string; image?: string }[] = data.projects ?? [];
-        // Prefabrik, Modüler, Konteyner gibi farklı kategorilerden ilk görselleri seçelim
-        const pick = (cat: string) => list.find((p) => p.category === cat)?.image as string | undefined;
-        const heroImages = [pick("prefabrik"), pick("moduler"), pick("konteyner")].filter(Boolean) as string[];
-        if (heroImages.length) {
-          setSlides((prev) => prev.map((s, i) => ({ ...s, image: s.image || heroImages[i % heroImages.length] })));
-        }
-      } catch {}
-    })();
-  }, []);
+  // Static images - API çağrısı kaldırıldı
 
   return (
     <section className="relative h-screen pt-20 w-full overflow-hidden">

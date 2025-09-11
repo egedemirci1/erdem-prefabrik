@@ -23,14 +23,64 @@ const PortfolioGrid = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch('/api/projects');
-        const data = await res.json();
-        const list = ((data.projects ?? []) as PortfolioItem[]).slice(0, 8);
-        setItems(list);
-      } catch {}
-    })();
+    // Static data - API çağrısı kaldırıldı
+    const staticProjects = [
+      {
+        id: "1",
+        title: "Prefabrik Ev Villa",
+        description: "Modern ve estetik prefabrik ev çözümü",
+        specs: "115 m² • 3+1",
+        location: "Konya",
+        image: "/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/ALİ YAVUZ 115-M2/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/ALİ YAVUZ 115-M2/1_Photo - 1.jpg"]
+      },
+      {
+        id: "2", 
+        title: "Modüler Ofis",
+        description: "Esnek ve özelleştirilebilir modüler ofis",
+        specs: "100 m² • Ofis",
+        location: "Konya",
+        image: "/images/projects/1-URUN-GORSELLERI/6-MODULER/100 M2-OFİS/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/6-MODULER/100 M2-OFİS/1_Photo - 1.jpg"]
+      },
+      {
+        id: "3",
+        title: "Konteyner Ev",
+        description: "Pratik ve mobil konteyner çözümü",
+        specs: "35 m² • 1+1",
+        location: "Konya", 
+        image: "/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/1-STANDART/3,5X10/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/1-STANDART/3,5X10/1_Photo - 1.jpg"]
+      },
+      {
+        id: "4",
+        title: "Tiny House",
+        description: "Kompakt ve şık tiny house",
+        specs: "20 m² • 1+0",
+        location: "Konya",
+        image: "/images/projects/1-URUN-GORSELLERI/4-TINY HOUSE VE MOBİL YAPILAR/Tinyhouse-TİNY HİLLS-2.5X8/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/4-TINY HOUSE VE MOBİL YAPILAR/Tinyhouse-TİNY HİLLS-2.5X8/1_Photo - 1.jpg"]
+      },
+      {
+        id: "5",
+        title: "Çelik Yapı",
+        description: "Dayanıklı çelik yapı çözümü",
+        specs: "137 m² • Villa",
+        location: "Konya",
+        image: "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/AYŞE GÜNER-YUNAK-137 ÇELİKEV/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/AYŞE GÜNER-YUNAK-137 ÇELİKEV/1_Photo - 1.jpg"]
+      },
+      {
+        id: "6",
+        title: "Şantiye Yapısı",
+        description: "Geçici şantiye yapısı",
+        specs: "205 m² • İdari Bina",
+        location: "Karaman",
+        image: "/images/projects/1-URUN-GORSELLERI/5-ŞANTIYE VE OZEL KULLANIM/KARAMAN KARSEL İNŞAAT-KARAMAN-İDARİ BİNA 205 M2/1_Photo - 1.jpg",
+        images: ["/images/projects/1-URUN-GORSELLERI/5-ŞANTIYE VE OZEL KULLANIM/KARAMAN KARSEL İNŞAAT-KARAMAN-İDARİ BİNA 205 M2/1_Photo - 1.jpg"]
+      }
+    ];
+    setItems(staticProjects);
   }, []);
 
   return (

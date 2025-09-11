@@ -7,6 +7,7 @@ import Footer from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Grid, List } from "lucide-react";
 import Image from "next/image";
+import projectsData from '@/data/projects.json';
 
 export default function ProjelerPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -38,49 +39,45 @@ export default function ProjelerPage() {
     area?: number;
   };
 
-  const [loading, setLoading] = useState(true);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [totalProjects, setTotalProjects] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [projects, setProjects] = useState<Project[]>(projectsData as Project[]);
+  const [totalProjects, setTotalProjects] = useState(projectsData.length);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortKey, setSortKey] = useState<'area-desc' | 'area-asc' | 'default'>('default');
 
   const loadProjects = async (page: number = 1, category: string = 'all', append: boolean = false) => {
     try {
       setLoading(true);
-      const url = `/api/projects?page=${page}&limit=${PAGE_SIZE}&category=${category}`;
-      console.log('Fetching from URL:', url);
+      // Statik veri kullan
+      let filteredProjects = projectsData as Project[];
       
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'no-store'
-      });
-      console.log('Response status:', res.status);
-      
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
+      if (category !== 'all') {
+        filteredProjects = filteredProjects.filter(p => p.category === category);
       }
       
-      const data = await res.json();
-      console.log('API response:', data);
+      // Sıralama
+      if (sortKey === 'area-desc') {
+        filteredProjects = filteredProjects.sort((a, b) => (b.area ?? -1) - (a.area ?? -1));
+      } else if (sortKey === 'area-asc') {
+        filteredProjects = filteredProjects.sort((a, b) => (a.area ?? -1) - (b.area ?? -1));
+      }
       
-      if (append && page > 1) {
-        // Yeni projeleri mevcut projelere ekle
-        setProjects(prev => [...prev, ...(data.projects ?? [])]);
+      // Sayfalama
+      const startIndex = (page - 1) * PAGE_SIZE;
+      const endIndex = startIndex + PAGE_SIZE;
+      const paginatedProjects = filteredProjects.slice(startIndex, endIndex);
+      
+      if (append) {
+        setProjects(prev => [...prev, ...paginatedProjects]);
       } else {
-        // İlk yükleme veya kategori değişimi - projeleri değiştir
-        setProjects(data.projects ?? []);
+        setProjects(paginatedProjects);
       }
       
-      setTotalProjects(data.total ?? 0);
+      setTotalProjects(filteredProjects.length);
       setCurrentPage(page);
+      setLoading(false);
     } catch (error) {
-      console.error('Error loading projects:', error);
-      setProjects([]);
-      setTotalProjects(0);
-    } finally {
+      console.error('Projeler yüklenirken hata:', error);
       setLoading(false);
     }
   };
