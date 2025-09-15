@@ -46,7 +46,7 @@ function PrefabrikCelikContent() {
       setLoading(true);
       const categoryType = category === 'celik-ev-villa' ? 'celik' : 
                           category === 'santiye' ? 'santiye' : 'prefabrik';
-      const filteredProjects = projectsData.filter((p: Project) => p.category === categoryType);
+      const filteredProjects = (projectsData as Project[]).filter((p: Project) => p.category === categoryType);
       setProjects(filteredProjects);
     } catch (error) {
       console.error('Error loading projects:', error);
