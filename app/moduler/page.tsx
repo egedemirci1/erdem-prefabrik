@@ -9,6 +9,8 @@ import { useEffect, useMemo, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import projectsData from "@/data/projects.json";
+import { filterProjectsByCategory, getMainCategoryFromSub, filterProjectsBySubCategory, type Project } from "@/lib/categories";
 
 export default function ModulerPage() {
   return (
@@ -22,7 +24,6 @@ function ModulerContent() {
   const searchParams = useSearchParams();
   const sub = searchParams.get('category');
 
-  type Project = { id: string; category: 'prefabrik'|'celik'|'konteyner'|'tiny-house'|'santiye'|'moduler'|'deprem'; title: string; description: string; specs: string; location: string; image: string; images: string[]; area?: number; group?: string; };
 
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -30,55 +31,36 @@ function ModulerContent() {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   useEffect(() => { 
-    (async () => { 
-      try { 
-        setLoading(true); 
-        const r = await fetch('/api/projects?category=moduler&limit=100'); 
-        const d = await r.json(); 
-        setProjects(d.projects ?? []);
-      } finally { 
-        setLoading(false);
-      } 
-    })(); 
+    try { 
+      setLoading(true); 
+      // Modüler alt kategorileri -> moduler kategorisinden projeleri getir
+      const filteredProjects = filterProjectsByCategory(projectsData as Project[], 'moduler');
+      setProjects(filteredProjects);
+    } catch (error) {
+      console.error('Error loading projects:', error);
+    } finally { 
+      setLoading(false);
+    } 
   }, []);
 
   const { title, description } = useMemo(() => {
     switch (sub) {
       case 'bungalow':
-      case 'tiny-house': return { title: 'Bungalow & Tiny House', description: 'Tek katlı bungalow ve kompakt tiny house çözümleri' };
-      case 'ofis': return { title: 'Modüler Ofis', description: 'Esnek ve özelleştirilebilir ofis alanları' };
-      case 'moduler-ev': return { title: 'Modüler Ev', description: 'Modern ve konforlu modüler ev tasarımları' };
-      case 'sifir-atik': return { title: 'Sıfır Atık', description: 'Çevre dostu sıfır atık modüler yapıları' };
-      default: return { title: 'Modüler Yapılar', description: 'Esnek, özelleştirilebilir modüler çözümler' };
+      case 'tiny-house': return { title: 'Bungalow & Tiny House', description: '2 Katlı Bungalow Ve Kompakt Tiny House Çözümleri' };
+      case 'ofis':
+      case 'moduler-ev': return { title: 'Modüler Ev & Ofis', description: 'Modern Ve Konforlu Modüler Ev Ve Ofis Tasarımları' };
+      case 'sifir-atik': return { title: 'Sıfır Atık', description: 'Çevre Dostu Sıfır Atık Modüler Yapıları' };
+      default: return { title: 'Modüler Yapılar', description: 'Esnek, Özelleştirilebilir Modüler Çözümler' };
     }
   }, [sub]);
 
   const filtered = useMemo(() => {
     if (!projects.length) return [] as Project[];
     
-    return projects.filter((p) => {
-      if (p.category !== 'moduler') return false;
-      const id = p.id.toUpperCase();
-      
-      // First check for bungalow and tiny house (these take priority)
-      if (sub === 'bungalow' || sub === 'tiny-house') {
-        return id.includes('BUNGAL') || id.includes('BUNGALOW') || id.includes('bungalow') || id.includes('TİNY') || id.includes('TINY') || 
-               id.includes('TRIANA') || id.includes('triana') || id.includes('ÜÇGEN');
-      }
-      
-      // Then check other categories
-      if (sub === 'ofis') return id.includes('OFİS') || id.includes('OFIS');
-      if (sub === 'sifir-atik') return id.includes('SIFIR') || id.includes('SIFIR') || id.includes('ATIK') || id.includes('ATIK');
-      if (sub === 'moduler-ev') {
-        // Exclude bungalow, tiny house, and sifir atik from moduler-ev
-        const isBungalowOrTiny = id.includes('BUNGAL') || id.includes('BUNGALOW') || id.includes('bungalow') || id.includes('TİNY') || id.includes('TINY') || 
-                               id.includes('TRIANA') || id.includes('triana') || id.includes('ÜÇGEN');
-        const isSifirAtik = id.includes('SIFIR') || id.includes('ATIK');
-        if (isBungalowOrTiny || isSifirAtik) return false;
-        return id.includes('EVLER') || id.includes('EV');
-      }
-      return true;
-    });
+    // Use subcategory filtering
+    const result = filterProjectsBySubCategory(projects, sub);
+    
+    return result;
   }, [projects, sub]);
 
   return (
@@ -121,14 +103,14 @@ function ModulerContent() {
                       <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent" />
                     </div>
 
-                    {/* Hover Overlay */}
+                    {/* Desktop Hover Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Button
                         size="lg"
                         onClick={() => { setSelectedProject(p); setSelectedImageIdx(0); }}
-                        className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl"
+                        className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       >
                         Detayları Gör
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -138,8 +120,19 @@ function ModulerContent() {
                     <div className="p-6">
                       <div className="text-sm text-muted-foreground mb-2">{p.location}</div>
                       <h3 className="text-xl font-light text-foreground mb-1">{p.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-3">{p.description}</p>
-                      <div className="text-sm text-accent font-medium">{p.specs}</div>
+                      <div className="text-sm text-accent font-medium mb-4">{p.specs}</div>
+
+                      {/* Mobile Button - Always Visible */}
+                      <div className="sm:hidden flex justify-center">
+                        <Button
+                          size="lg"
+                          onClick={() => { setSelectedProject(p); setSelectedImageIdx(0); }}
+                          className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                        >
+                          Detayları Gör
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -168,7 +161,6 @@ function ModulerContent() {
               <div>
                 <div className="text-lg font-medium">{selectedProject.title}</div>
                 <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-                <div className="text-sm mt-2">{selectedProject.description}</div>
               </div>
               <div className="flex items-center gap-2">
                 <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>

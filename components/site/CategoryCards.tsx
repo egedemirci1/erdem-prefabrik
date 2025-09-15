@@ -46,8 +46,8 @@ const CategoryCards = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-24 bg-secondary">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const CategoryCards = () => {
               className="group"
             >
               <motion.div
-                className="relative h-96 bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer"
+                className="relative h-80 sm:h-96 bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 onHoverStart={() => setHoveredCard(category.id)}

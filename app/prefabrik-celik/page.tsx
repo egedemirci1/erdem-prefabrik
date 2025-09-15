@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import projectsData from "@/data/projects.json";
 
 export default function PrefabrikCelikPage() {
   return (
@@ -41,32 +42,30 @@ function PrefabrikCelikContent() {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   useEffect(() => {
-    const load = async () => {
-      try {
-        setLoading(true);
-        const categoryType = category === 'celik-ev-villa' ? 'celik' : 
-                            category === 'santiye' ? 'santiye' : 'prefabrik';
-        const res = await fetch(`/api/projects?category=${categoryType}`);
-        const data = await res.json();
-        setProjects(data.projects ?? []);
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
+    try {
+      setLoading(true);
+      const categoryType = category === 'celik-ev-villa' ? 'celik' : 
+                          category === 'santiye' ? 'santiye' : 'prefabrik';
+      const filteredProjects = projectsData.filter((p: Project) => p.category === categoryType);
+      setProjects(filteredProjects);
+    } catch (error) {
+      console.error('Error loading projects:', error);
+    } finally {
+      setLoading(false);
+    }
   }, [category]);
 
   const { title, description } = useMemo(() => {
     switch (category) {
       case 'prefabrik-ev-villa':
-        return { title: 'Prefabrik Ev & Villa', description: 'Hızlı kurulum prefabrik ev çözümleri' };
+        return { title: 'Prefabrik Ev & Villa', description: 'Hızlı Kurulum Prefabrik Ev Çözümleri' };
       case 'prefabrik-santiye-yapilari':
       case 'santiye':
-        return { title: 'Şantiye & Özel Kullanım', description: 'Şantiye binaları ve özel kullanım alanları' };
+        return { title: 'Şantiye & Özel Kullanım', description: 'Şantiye Binaları Ve Özel Kullanım Alanları' };
       case 'celik-ev-villa':
-        return { title: 'Çelik Ev & Villa', description: 'Lüks ve konforlu çelik ev çözümleri' };
+        return { title: 'Çelik Ev & Villa', description: 'Lüks Ve Konforlu Çelik Ev Çözümleri' };
       default:
-        return { title: 'Prefabrik Çelik Yapılar', description: 'Modern, dayanıklı ve estetik çözümler' };
+        return { title: 'Prefabrik Çelik Yapılar', description: 'Modern, Dayanıklı Ve Estetik Çözümler' };
     }
   }, [category]);
 
@@ -129,14 +128,14 @@ function PrefabrikCelikContent() {
                       <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent" />
                     </div>
 
-                    {/* Hover Overlay */}
+                    {/* Desktop Hover Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Button
                         size="lg"
                         onClick={() => { setSelectedProject(project); setSelectedImageIdx(0); }}
-                        className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl"
+                        className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       >
                         Detayları Gör
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -146,8 +145,19 @@ function PrefabrikCelikContent() {
                     <div className="p-6">
                       <div className="text-sm text-muted-foreground mb-2">{project.location}</div>
                       <h3 className="text-xl font-light text-foreground mb-1">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                      <div className="text-sm text-accent font-medium">{project.specs}</div>
+                      <div className="text-sm text-accent font-medium mb-4">{project.specs}</div>
+
+                      {/* Mobile Button - Always Visible */}
+                      <div className="sm:hidden flex justify-center">
+                        <Button
+                          size="lg"
+                          onClick={() => { setSelectedProject(project); setSelectedImageIdx(0); }}
+                          className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                        >
+                          Detayları Gör
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -176,7 +186,6 @@ function PrefabrikCelikContent() {
               <div>
                 <div className="text-lg font-medium">{selectedProject.title}</div>
                 <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-                <div className="text-sm mt-2">{selectedProject.description}</div>
               </div>
               <div className="flex items-center gap-2">
                 <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>

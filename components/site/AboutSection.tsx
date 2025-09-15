@@ -36,8 +36,8 @@ const AboutSection = () => {
 
   return (
     <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -47,7 +47,7 @@ const AboutSection = () => {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-foreground font-extralight mb-6">
+              <h2 className="text-foreground font-extralight mb-6 text-center lg:text-left">
                 Hakkımızda
               </h2>
               <p className="text-xl text-muted-foreground font-light leading-relaxed mb-6">
@@ -64,7 +64,7 @@ const AboutSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.id}
@@ -74,8 +74,8 @@ const AboutSection = () => {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary flex items-center justify-center">
-                    <stat.icon className="w-8 h-8 text-accent" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-2xl bg-secondary flex items-center justify-center">
+                    <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
                   <div className="text-3xl font-light text-foreground mb-2">
                     {stat.number}
@@ -93,6 +93,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
+              className="flex justify-center lg:justify-start"
             >
               <Button
                 asChild
@@ -115,7 +116,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative h-[600px] rounded-2xl shadow-xl overflow-hidden">
+            <div className="relative h-[400px] sm:h-[600px] rounded-2xl shadow-xl overflow-hidden">
               <Image src="/images/slider-2.jpg" alt="Erdem Prefabrik" fill priority className="object-cover" />
               <div className="absolute inset-0 bg-black/20" />
             </div>
@@ -126,7 +127,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 max-w-xs"
+              className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 bg-white rounded-2xl shadow-xl p-4 sm:p-6 max-w-xs"
             >
               <h4 className="text-lg font-light text-foreground mb-2">
                 Müşteri Memnuniyeti

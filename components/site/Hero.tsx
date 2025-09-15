@@ -46,34 +46,44 @@ const Hero = () => {
   return (
     <section className="relative h-screen pt-20 w-full overflow-hidden">
       {/* Background Slides */}
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0"
-        >
-          {slides[currentSlide]?.image ? (
-            <div className="absolute inset-0">
-              <Image
-                src={slides[currentSlide].image as string}
-                alt={slides[currentSlide].title}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-black/60" />
-            </div>
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary to-background">
-              <div className="absolute inset-0 bg-black/20" />
-            </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: index === currentSlide ? 1 : 0,
+              scale: index === currentSlide ? 1 : 1.02
+            }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+            className="absolute inset-0"
+          >
+            {slide?.image ? (
+              <div className="absolute inset-0">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                />
+                <div className="absolute inset-0 bg-black/60" />
+              </div>
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-background">
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full">
@@ -103,12 +113,12 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-xs mx-auto sm:max-w-none"
             >
               <Button
                 asChild
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg font-medium rounded-2xl shadow- xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg font-medium rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
                 <Link href="/projeler">
                   Tüm Projelerimiz
@@ -119,7 +129,7 @@ const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-2xl shadow-md"
+                className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-2xl shadow-md w-full sm:w-auto"
               >
                 <Link href="/iletisim">
                   <Mail className="mr-2 h-5 w-5" />
@@ -132,7 +142,7 @@ const Hero = () => {
       </div>
 
       {/* Slide Indicators (above mouse icon) */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-32 sm:bottom-20 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex space-x-3">
           {slides.map((_, index) => (
             <button
@@ -153,7 +163,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-20 sm:bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

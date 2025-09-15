@@ -42,8 +42,7 @@ const Header = () => {
       href: "/moduler",
       dropdown: [
         { name: "Bungalow & Tiny House", href: "/moduler/bungalow" },
-        { name: "Ofis", href: "/moduler/ofis" },
-        { name: "Modüler Ev", href: "/moduler/moduler-ev" },
+        { name: "Modüler Ev & Ofis", href: "/moduler/ofis" },
         { name: "Sıfır Atık", href: "/moduler/sifir-atik" },
       ],
     },
@@ -69,7 +68,7 @@ const Header = () => {
           : "bg-white/80 backdrop-blur-md"
       }`}
     >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto pl-4 pr-6 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 overflow-x-hidden w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -78,7 +77,14 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Image src="/images/Logo.png" alt="Erdem Prefabrik" width={105} height={25} className="object-contain" priority />
+              <Image 
+                src="/images/Logo.png" 
+                alt="Erdem Prefabrik" 
+                width={105} 
+                height={25} 
+                className="object-contain w-16 sm:w-20 md:w-24 lg:w-[105px] h-auto" 
+                priority 
+              />
             </motion.div>
           </Link>
 
@@ -130,14 +136,14 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
-            size="sm"
-            className="lg:hidden p-2"
+            size="lg"
+            className="lg:hidden p-4 min-h-[48px] min-w-[48px]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-9 w-9 text-gray-700" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-9 w-9 text-gray-700" />
             )}
           </Button>
         </div>

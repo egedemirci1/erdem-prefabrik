@@ -17,7 +17,7 @@ const AboutTabs = () => {
       id: "vision", 
       title: "Vizyonumuz",
       icon: Eye,
-      content: "Prefabrik Yapı Sektöründe Öncü Ve Güvenilir Bir Marka Olarak; SÜRDÜRÜLEBİLİR, ENERJİ VERİMLİ Ve KULLANICI ODAKLI Çözümlerle Geleceğin Yaşam Alanlarını Bugünden İnşa Etmek."
+      content: "Prefabrik Yapı Sektöründe Öncü Ve Güvenilir Bir Marka Olarak; Sürdürülebilir, Enerji Verimli Ve Kullanıcı Odaklı Çözümlerle Geleceğin Yaşam Alanlarını Bugünden İnşa Etmek."
     },
     {
       id: "story",

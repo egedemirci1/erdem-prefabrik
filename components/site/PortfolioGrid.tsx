@@ -32,7 +32,7 @@ const PortfolioGrid = () => {
 
   return (
     <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ const PortfolioGrid = () => {
                   setSelectedImageIdx(0);
                 }}
               >
-                <div className={`h-64 relative`}>
+                <div className={`h-56 sm:h-64 relative`}>
                   <Image 
                     src={project.image} 
                     alt={project.title} 
@@ -94,12 +94,29 @@ const PortfolioGrid = () => {
                     {project.specs}
                   </div>
 
+                  {/* Mobile Button - Always Visible */}
+                  <div className="sm:hidden flex justify-center">
+                    <Button
+                      size="lg"
+                      className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project);
+                        setSelectedImageIdx(0);
+                      }}
+                    >
+                      Detayları Gör
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+
+                  {/* Desktop Overlay Button */}
                   <motion.div
-                    className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <Button
                       size="lg"
-                      className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl"
+                      className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedProject(project);
@@ -159,7 +176,6 @@ const PortfolioGrid = () => {
               <div>
                 <div className="text-lg font-medium">{selectedProject.title}</div>
                 <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-                <div className="text-sm mt-2">{selectedProject.description}</div>
               </div>
               <div className="flex items-center gap-2">
                 <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>

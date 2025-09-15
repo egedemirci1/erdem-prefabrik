@@ -41,7 +41,7 @@ const TechnicalFeatures = () => {
 
   return (
     <section className="py-24 bg-secondary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,17 +68,17 @@ const TechnicalFeatures = () => {
               className="group"
             >
               <motion.div
-                className="relative bg-white rounded-2xl shadow-xl p-8 text-center h-full"
+                className="relative bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center h-full"
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Icon */}
                 <motion.div
-                  className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-lg`}
+                  className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-lg`}
                   whileHover={{ rotate: 5, scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <feature.icon className={`w-10 h-10 ${feature.iconColor}`} />
+                  <feature.icon className={`w-8 h-8 sm:w-10 sm:h-10 ${feature.iconColor}`} />
                 </motion.div>
 
                 {/* Content */}

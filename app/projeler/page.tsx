@@ -20,16 +20,13 @@ export default function ProjelerPage() {
     { id: 'all', name: 'Tümü' },
     { id: 'prefabrik', name: 'Prefabrik Yapılar' },
     { id: 'celik', name: 'Hafif Çelik Yapılar' },
-    { id: 'konteyner', name: 'Konteynerlar' },
-    { id: 'tiny-house', name: 'Tiny House & Mobil' },
     { id: 'santiye', name: 'Şantiye & Özel Kullanım' },
-    { id: 'moduler', name: 'Modüler' },
-    { id: 'deprem', name: 'Deprem Projeleri' }
+    { id: 'moduler', name: 'Modüler' }
   ];
 
   type Project = {
     id: string;
-    category: 'prefabrik' | 'celik' | 'konteyner' | 'tiny-house' | 'santiye' | 'moduler' | 'deprem';
+    category: 'prefabrik' | 'celik' | 'santiye' | 'moduler';
     title: string;
     description: string;
     specs: string;
@@ -112,29 +109,28 @@ export default function ProjelerPage() {
             </p>
           </div>
 
-          {/* Filters and View Controls */}
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-12 gap-6">
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-3">
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => { 
-                    setSelectedCategory(category.id); 
-                    setProjects([]); // Önceki projeleri temizle
-                    loadProjects(1, category.id); 
-                  }}
-                  className="rounded-xl"
-                >
-                  {category.name}
-                </Button>
-              ))}
-            </div>
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {categories.map((category) => (
+              <Button
+                key={category.id}
+                variant={selectedCategory === category.id ? "default" : "outline"}
+                size="sm"
+                onClick={() => { 
+                  setSelectedCategory(category.id); 
+                  setProjects([]); // Önceki projeleri temizle
+                  loadProjects(1, category.id); 
+                }}
+                className="rounded-xl text-xs sm:text-sm px-3 py-2"
+              >
+                {category.name}
+              </Button>
+            ))}
+          </div>
 
-            {/* View Mode Toggle */}
-            <div className="flex items-center gap-2 bg-white rounded-xl p-1">
+          {/* View Controls - Centered */}
+          <div className="flex justify-center mb-12">
+            <div className="flex items-center gap-2 bg-white rounded-xl p-1 shadow-sm">
               <Button
                 variant={viewMode === 'grid' ? "default" : "ghost"}
                 size="sm"
@@ -152,7 +148,7 @@ export default function ProjelerPage() {
                 <List className="w-4 h-4" />
               </Button>
               <select
-                className="ml-2 text-sm border rounded-lg px-2 py-1"
+                className="ml-2 text-sm border rounded-lg px-2 py-1 bg-white"
                 value={sortKey}
                 onChange={(e) => {
                   const value = e.target.value as 'area-desc' | 'area-asc' | 'default';
@@ -221,10 +217,6 @@ export default function ProjelerPage() {
                       {project.title}
                     </h3>
                     
-                    <p className="text-muted-foreground font-light text-sm mb-3 leading-relaxed">
-                      {project.description}
-                    </p>
-                    
                     <div className="flex items-center justify-between mb-4">
                       <div className="text-sm text-accent font-medium">{project.specs}</div>
                       {project.area && (
@@ -232,14 +224,26 @@ export default function ProjelerPage() {
                       )}
                     </div>
 
-                    {/* Hover Overlay */}
+                    {/* Mobile Button - Always Visible */}
+                    <div className="sm:hidden flex justify-center">
+                      <Button
+                        size="lg"
+                        onClick={() => { setSelectedProject(project); setSelectedImageIdx(0); }}
+                        className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      >
+                        Detayları Gör
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+
+                    {/* Desktop Hover Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Button
                         size="lg"
                         onClick={() => { setSelectedProject(project); setSelectedImageIdx(0); }}
-                        className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl"
+                        className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       >
                         Detayları Gör
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -270,7 +274,6 @@ export default function ProjelerPage() {
                   <div>
                     <div className="text-lg font-medium">{selectedProject.title}</div>
                     <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-                    <div className="text-sm mt-2">{selectedProject.description}</div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>
@@ -300,7 +303,7 @@ export default function ProjelerPage() {
           {/* Results Count */}
           <div className="text-center mt-12 space-y-4">
             <div className="text-muted-foreground">
-              {projects.length} / {totalProjects} proje gösteriliyor
+              {projects.length} / {totalProjects} Proje Gösteriliyor
             </div>
             {currentPage * PAGE_SIZE < totalProjects && (
               <Button

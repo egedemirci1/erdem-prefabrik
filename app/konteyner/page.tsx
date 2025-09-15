@@ -9,6 +9,8 @@ import { useEffect, useMemo, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import projectsData from "@/data/projects.json";
+import { filterProjectsByCategory, getMainCategoryFromSub, filterProjectsBySubCategory, type Project } from "@/lib/categories";
 
 export default function KonteynerPage() {
   return (
@@ -22,11 +24,6 @@ function KonteynerContent() {
   const searchParams = useSearchParams();
   const sub = searchParams.get('category');
 
-  type Project = {
-    id: string;
-    category: 'prefabrik' | 'celik' | 'konteyner' | 'tiny-house' | 'santiye' | 'moduler' | 'deprem';
-    title: string; description: string; specs: string; location: string; image: string; images: string[]; area?: number; group?: string;
-  };
 
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -34,40 +31,34 @@ function KonteynerContent() {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   useEffect(() => {
-    const load = async () => {
-      try { 
-        setLoading(true); 
-        const r = await fetch('/api/projects?category=konteyner&limit=100'); 
-        const d = await r.json(); 
-        setProjects(d.projects ?? []);
-      } finally { 
-        setLoading(false);
-      } 
-    };
-    load();
+    try { 
+      setLoading(true); 
+      // Konteyner alt kategorileri -> konteyner kategorisinden projeleri getir
+      const filteredProjects = filterProjectsByCategory(projectsData as Project[], 'konteyner');
+      setProjects(filteredProjects);
+    } catch (error) {
+      console.error('Error loading projects:', error);
+    } finally { 
+      setLoading(false);
+    }
   }, []);
 
   const { title, description } = useMemo(() => {
     switch (sub) {
       case 'ev':
       case 'ofis':
-        return { title: 'Konteyner Ev & Ofis', description: 'Modern ve pratik konteyner yaşam ve çalışma alanları' };
-      case 'guvenlik-kulubesi': return { title: 'Güvenlik Kulübesi', description: 'Güvenlik personeli için konteyner kulübeler' };
-      case 'wc-dus-kabini': return { title: 'WC & Duş Kabini', description: 'Hijyenik konteyner tuvalet ve duş üniteleri' };
-      default: return { title: 'Konteyner Yapılar', description: 'Pratik, mobil ve çok amaçlı konteyner çözümleri' };
+        return { title: 'Konteyner Ev & Ofis', description: 'Modern Ve Pratik Konteyner Yaşam Ve Çalışma Alanları' };
+      case 'guvenlik-kulubesi': return { title: 'Güvenlik & Ekmek Kabini', description: 'Güvenlik Personeli Ve Ekmek Satışı İçin Konteyner Kulübeler' };
+      case 'wc-dus-kabini': return { title: 'WC & Duş Kabini', description: 'Hijyenik Konteyner Tuvalet Ve Duş Üniteleri' };
+      default: return { title: 'Konteyner Yapılar', description: 'Pratik, Mobil Ve Çok Amaçlı Konteyner Çözümleri' };
     }
   }, [sub]);
 
   const filtered = useMemo(() => {
     if (!projects.length) return [] as Project[];
-    return projects.filter((p) => {
-      if (p.category !== 'konteyner') return false;
-      const id = p.id.toUpperCase();
-      if (sub === 'guvenlik-kulubesi') return id.includes('4-GÜVENL') || id.includes('4-GUVENL') || id.includes('GÜVENLİK') || id.includes('GUVENLIK');
-      if (sub === 'wc-dus-kabini') return id.includes('3-WC') || id.includes('WC');
-      if (sub === 'ofis' || sub === 'ev') return id.includes('1-STANDART') || id.includes('2-ÖZEL TASARIM') || id.includes('2-OZEL TASARIM');
-      return true;
-    });
+    
+    // Use subcategory filtering
+    return filterProjectsBySubCategory(projects, sub);
   }, [projects, sub]);
 
   return (
@@ -97,7 +88,7 @@ function KonteynerContent() {
                     whileHover={{ scale: 1.02, y: -5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="relative h-48">
+                    <div className="relative h-48 overflow-hidden">
                       <Image 
                         src={p.image} 
                         alt={p.title} 
@@ -110,14 +101,14 @@ function KonteynerContent() {
                       <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent" />
                     </div>
 
-                    {/* Hover Overlay */}
+                    {/* Desktop Hover Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Button
                         size="lg"
                         onClick={() => { setSelectedProject(p); setSelectedImageIdx(0); }}
-                        className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl"
+                        className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       >
                         Detayları Gör
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -127,8 +118,19 @@ function KonteynerContent() {
                     <div className="p-6">
                       <div className="text-sm text-muted-foreground mb-2">{p.location}</div>
                       <h3 className="text-xl font-light text-foreground mb-1">{p.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-3">{p.description}</p>
-                      <div className="text-sm text-accent font-medium">{p.specs}</div>
+                      <div className="text-sm text-accent font-medium mb-4">{p.specs}</div>
+
+                      {/* Mobile Button - Always Visible */}
+                      <div className="sm:hidden flex justify-center">
+                        <Button
+                          size="lg"
+                          onClick={() => { setSelectedProject(p); setSelectedImageIdx(0); }}
+                          className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                        >
+                          Detayları Gör
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -157,7 +159,6 @@ function KonteynerContent() {
               <div>
                 <div className="text-lg font-medium">{selectedProject.title}</div>
                 <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-                <div className="text-sm mt-2">{selectedProject.description}</div>
               </div>
               <div className="flex items-center gap-2">
                 <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>

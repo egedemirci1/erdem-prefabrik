@@ -57,7 +57,7 @@ export default function HakkimizdaPage() {
           <div className="mt-6 sm:mt-8 mx-auto w-full max-w-4xl px-4">
             <div className="bg-accent text-white rounded-2xl px-4 sm:px-6 py-4 sm:py-6 flex flex-col md:flex-row md:items-center md:justify-between shadow-xl">
               <div className="text-center md:text-left mb-4 md:mb-0">
-                <div className="text-lg sm:text-xl font-bold">Projeniz İçin Birlikte Planlayalım</div>
+                <div className="text-lg sm:text-xl font-bold">Projenizi Birlikte Planlayalım</div>
                 <div className="text-white/90 text-xs sm:text-sm">Sorularınız İçin Hemen İletişim Sayfasına Geçebilirsiniz.</div>
               </div>
               <Link
