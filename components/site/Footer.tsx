@@ -179,26 +179,25 @@ const Footer = () => {
               />
               <Button
                 className="bg-white text-accent hover:bg-white/90 h-12 px-6 rounded-xl font-medium"
-                onClick={async () => {
+                onClick={() => {
                   const input = document.querySelector<HTMLInputElement>('footer input[type="email"]');
                   const email = input?.value?.trim() || '';
                   if (!email) return alert('Lütfen e‑posta adresinizi girin');
-                  try {
-                    const res = await fetch('/api/subscribe', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ email }),
-                    });
-                    const data = await res.json();
-                    if (data?.ok) {
-                      alert('Abonelik oluşturuldu. Teşekkürler!');
-                      if (input) input.value = '';
-                    } else {
-                      alert(data?.error || 'Abonelik işleminde hata');
-                    }
-                  } catch {
-                    alert('Sunucuya bağlanılamadı');
+                  
+                  // Email validation
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  if (!emailRegex.test(email)) {
+                    return alert('Lütfen geçerli bir e‑posta adresi girin');
                   }
+                  
+                  // Open mail client
+                  const subject = encodeURIComponent('Newsletter Aboneliği');
+                  const body = encodeURIComponent(`Merhaba,\n\nE-bülten aboneliği için başvuru yapıyorum.\n\nE-posta: ${email}\n\nTeşekkürler.`);
+                  window.open(`mailto:info@erdemprefabrikev.com?subject=${subject}&body=${body}`);
+                  
+                  // Clear input after opening mail client
+                  if (input) input.value = '';
+                  alert('E-posta uygulamanız açılacak. Lütfen gönder butonuna basın.');
                 }}
               >
                 <Send className="w-4 h-4 mr-2" />
