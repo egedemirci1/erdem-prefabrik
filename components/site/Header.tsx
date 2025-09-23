@@ -16,8 +16,12 @@ import {
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasHero, setHasHero] = useState(false);
 
   useEffect(() => {
+    // Check if we're on homepage (has hero section)
+    setHasHero(window.location.pathname === "/");
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -43,7 +47,6 @@ const Header = () => {
       dropdown: [
         { name: "Bungalow & Tiny House", href: "/moduler/bungalow" },
         { name: "Modüler Ev & Ofis", href: "/moduler/ofis" },
-        { name: "Sıfır Atık", href: "/moduler/sifir-atik" },
       ],
     },
     {
@@ -55,6 +58,7 @@ const Header = () => {
         { name: "Çelik Ev & Villa", href: "/prefabrik-celik/celik-ev-villa" },
       ],
     },
+    { name: "Sıfır Atık", href: "/moduler/sifir-atik" },
     { name: "Projeler", href: "/projeler" },
     { name: "Hakkımızda", href: "/hakkimizda" },
     { name: "İletişim", href: "/iletisim" },
@@ -63,9 +67,9 @@ const Header = () => {
   return (
     <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform ${
-        isScrolled
-          ? "bg-white/30 backdrop-blur-xl shadow-xl"
-          : "bg-white/20 backdrop-blur-xl"
+        hasHero && !isScrolled
+          ? "bg-white/20 backdrop-blur-xl"
+          : "bg-white/95 backdrop-blur-xl shadow-xl"
       }`}
     >
           <div className="max-w-7xl mx-auto pl-4 pr-6 sm:px-6 lg:px-8">
@@ -97,7 +101,9 @@ const Header = () => {
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 text-foreground hover:text-accent hover:bg-transparent p-0 h-auto font-light text-base"
+                        className={`flex items-center gap-1 hover:bg-transparent p-0 h-auto font-light text-base transition-colors ${
+                          hasHero && !isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-gray-600"
+                        }`}
                       >
                         {item.name}
                         <ChevronDown className="h-4 w-4" />
@@ -124,7 +130,9 @@ const Header = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-foreground hover:text-accent transition-colors font-light text-base"
+                        className={`transition-colors font-light text-base ${
+                          hasHero && !isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-gray-600"
+                        }`}
                   >
                     {item.name}
                   </Link>
@@ -141,9 +149,13 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="h-9 w-9 text-gray-700" />
+              <X className={`h-9 w-9 transition-colors ${
+                hasHero && !isScrolled ? "text-white" : "text-gray-800"
+              }`} />
             ) : (
-              <Menu className="h-9 w-9 text-gray-700" />
+              <Menu className={`h-9 w-9 transition-colors ${
+                hasHero && !isScrolled ? "text-white" : "text-gray-800"
+              }`} />
             )}
           </Button>
         </div>
@@ -164,13 +176,17 @@ const Header = () => {
                 <div key={item.name}>
                   {item.dropdown ? (
                     <div className="space-y-2">
-                      <div className="font-medium text-foreground">{item.name}</div>
+                      <div className={`font-medium transition-colors ${
+                        hasHero && !isScrolled ? "text-white" : "text-gray-800"
+                      }`}>{item.name}</div>
                       <div className="ml-4 space-y-2">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block text-sm text-muted-foreground hover:text-accent transition-colors"
+                            className={`block text-sm transition-colors ${
+                              hasHero && !isScrolled ? "text-white/80 hover:text-white" : "text-gray-600 hover:text-gray-800"
+                            }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {dropdownItem.name}
@@ -181,7 +197,9 @@ const Header = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block text-foreground hover:text-accent transition-colors font-medium"
+                      className={`block transition-colors font-medium ${
+                        hasHero && !isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-gray-600"
+                      }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
