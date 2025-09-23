@@ -30,7 +30,7 @@ const Hero = () => {
       title: "Hızlı Kurulum",
       subtitle: "Zaman Tasarrufu Sağlayan Modüler Yapı Sistemleri Oluşturuyoruz.",
       image:
-        "/images/projects/1-URUN-GORSELLERI/5-ŞANTIYE VE OZEL KULLANIM/OTOBÜS HAREKAT/IMG_20211225_150836.jpg",
+        "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow5/2_Photo - 1.jpg",
     },
   ]);
 
