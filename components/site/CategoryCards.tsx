@@ -16,7 +16,7 @@ const CategoryCards = () => {
       title: "Prefabrik",
       description: "Modern Ve Estetik Prefabrik Ev Çözümleri",
       icon: Home,
-      image: "/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/AYSE GUNER-YUNAK-137 CELIKEV/5_Photo - 4.jpg",
+      image: "/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/DURMUŞ ÜNER 97-M2/a26.jpg",
       href: "/prefabrik-celik",
       color: "from-blue-50 to-blue-100",
       iconColor: "text-blue-600",
