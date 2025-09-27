@@ -8,12 +8,12 @@ import AboutSection from "@/components/site/AboutSection";
 import Footer from "@/components/site/Footer";
 
 export const metadata: Metadata = {
-  title: "Erdem Prefabrik - Zerafetin Modüler Hali | Prefabrik Ev, Modüler Yapı, Konteyner Çözümleri",
-  description: "20+ yıllık deneyimle prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz. Kaliteli malzeme, hızlı kurulum, uygun fiyat. Konya merkezli, Türkiye geneli hizmet.",
-  keywords: "prefabrik ev, modüler yapı, konteyner, çelik yapı, prefabrik villa, tiny house, bungalow, şantiye yapısı, Konya prefabrik, Türkiye prefabrik",
+  title: "Erdem Prefabrik - 20+ Yıllık Deneyimle Prefabrik Yapı Çözümleri | Ana Sayfa",
+  description: "Erdem Prefabrik olarak 2003'ten beri prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz. 20+ yıllık deneyim, 1000+ başarılı proje. Kaliteli malzeme, hızlı kurulum, uygun fiyat. Konya merkezli, Türkiye geneli hizmet.",
+  keywords: "Erdem Prefabrik, prefabrik ev, modüler yapı, konteyner, çelik yapı, prefabrik villa, tiny house, bungalow, şantiye yapısı, Konya prefabrik, Türkiye prefabrik, 20 yıllık deneyim",
   openGraph: {
-    title: "Erdem Prefabrik - Zerafetin Modüler Hali",
-    description: "20+ yıllık deneyimle prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz.",
+    title: "Erdem Prefabrik - 20+ Yıllık Deneyimle Prefabrik Yapı Çözümleri",
+    description: "Erdem Prefabrik olarak 2003'ten beri prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz. 20+ yıllık deneyim, 1000+ başarılı proje.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Erdem Prefabrik - Zerafetin Modüler Hali",
-    description: "20+ yıllık deneyimle prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz.",
+    title: "Erdem Prefabrik - 20+ Yıllık Deneyimle Prefabrik Yapı Çözümleri",
+    description: "Erdem Prefabrik olarak 2003'ten beri prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz. 20+ yıllık deneyim, 1000+ başarılı proje.",
     images: ["/images/Logo.png"]
   },
   robots: {
