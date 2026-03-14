@@ -51,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        <meta name="google-site-verification" content="ezUB7b9jWElEM7uQaQ8QWiJsruNsjSPO0c9dwLxL8VA" />
         {/* LCP: ana sayfa hero görselini önceden yükle */}
         <link
           rel="preload"
