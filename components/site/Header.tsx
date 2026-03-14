@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,17 +17,19 @@ import {
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hasHero, setHasHero] = useState(false);
+  const pathname = usePathname();
+  const hasHero = pathname === "/";
 
   useEffect(() => {
-    // Check if we're on homepage (has hero section)
-    setHasHero(window.location.pathname === "/");
-    
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -147,6 +150,9 @@ const Header = () => {
             size="lg"
             className="lg:hidden p-4 min-h-[48px] min-w-[48px]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             {isMobileMenuOpen ? (
               <X className={`h-9 w-9 transition-colors ${
@@ -170,23 +176,22 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-white border-t border-border"
+            id="mobile-nav"
+            role="navigation"
+            aria-label="Mobil menü"
           >
             <div className="px-4 py-6 space-y-4">
               {navigationItems.map((item) => (
                 <div key={item.name}>
                   {item.dropdown ? (
                     <div className="space-y-2">
-                      <div className={`font-medium transition-colors ${
-                        hasHero && !isScrolled ? "text-white" : "text-gray-800"
-                      }`}>{item.name}</div>
+                      <div className="font-medium text-gray-800">{item.name}</div>
                       <div className="ml-4 space-y-2">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className={`block text-sm transition-colors ${
-                              hasHero && !isScrolled ? "text-white/80 hover:text-white" : "text-gray-600 hover:text-gray-800"
-                            }`}
+                            className="block text-sm text-gray-600 hover:text-gray-800 transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {dropdownItem.name}
@@ -197,9 +202,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`block transition-colors font-medium ${
-                        hasHero && !isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-gray-600"
-                      }`}
+                      className="block font-medium text-gray-800 hover:text-gray-600 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}

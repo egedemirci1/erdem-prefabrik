@@ -7,7 +7,7 @@ export const categories = [
   { id: 'moduler', name: 'Modüler' }
 ];
 
-export type ProjectCategory = 'prefabrik' | 'celik' | 'santiye' | 'moduler';
+export type ProjectCategory = 'prefabrik' | 'celik' | 'santiye' | 'moduler' | 'konteyner';
 
 export interface Project {
   id: string;

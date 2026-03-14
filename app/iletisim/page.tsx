@@ -1,6 +1,10 @@
+import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
-import type { Metadata } from "next";
+import ContactForm from "@/components/site/ContactForm";
+import Breadcrumb from "@/components/site/Breadcrumb";
+import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "İletişim | Erdem Prefabrik - Prefabrik Ev Fiyat Teklifi Alın",
@@ -11,7 +15,8 @@ export const metadata: Metadata = {
     description: "Prefabrik ev, modüler yapı ve konteyner projeleriniz için ücretsiz fiyat teklifi alın. Konya merkezli, Türkiye geneli hizmet.",
     type: "website",
     locale: "tr_TR",
-    siteName: "Erdem Prefabrik"
+    siteName: "Erdem Prefabrik",
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
   },
   robots: {
     index: true,
@@ -25,19 +30,46 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://erdemprefabrik.com/iletisim"
+    canonical: "https://erdemprefabrik.com/iletisim/"
   }
 };
-import ContactForm from "@/components/site/ContactForm";
-import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function IletisimPage() {
   return (
     <main className="min-h-screen">
+      <Script id="contact-jsonld" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "İletişim - Erdem Prefabrik",
+          url: "https://erdemprefabrik.com/iletisim/",
+          mainEntity: {
+            "@type": "LocalBusiness",
+            name: "Erdem Prefabrik",
+            telephone: "+90 332 351 80 60",
+            email: "info@erdemprefabrikev.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı",
+              addressLocality: "Karatay",
+              addressRegion: "Konya",
+              addressCountry: "TR",
+            },
+            openingHoursSpecification: [
+              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
+              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday"], opens: "09:00", closes: "14:00" },
+            ],
+          },
+        })}
+      </Script>
       <Header />
 
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { name: "Ana Sayfa", href: "/" },
+            { name: "İletişim", href: "/iletisim" },
+          ]} />
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extralight text-foreground mb-4">İletişim</h1>
             <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">

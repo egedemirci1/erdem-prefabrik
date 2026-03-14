@@ -1,8 +1,22 @@
-"use client";
 import type { Metadata } from "next";
-
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import Breadcrumb from "@/components/site/Breadcrumb";
+
+export const metadata: Metadata = {
+  title: "Kullanım Koşulları | Erdem Prefabrik",
+  description: "Erdem Prefabrik web sitesi kullanım koşulları. Siteye erişim, fikri mülkiyet, sorumluluk reddi ve uygulanacak hukuk hakkında bilgiler.",
+  openGraph: {
+    title: "Kullanım Koşulları | Erdem Prefabrik",
+    description: "Siteye erişim, fikri mülkiyet, sorumluluk reddi ve uygulanacak hukuk hakkında bilgiler.",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Erdem Prefabrik",
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://erdemprefabrik.com/kullanim-kosullari/" },
+};
 
 export default function KullanimKosullariPage() {
   return (
@@ -10,6 +24,10 @@ export default function KullanimKosullariPage() {
       <Header />
       <section className="py-24 bg-secondary">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { name: "Ana Sayfa", href: "/" },
+            { name: "Kullanım Koşulları", href: "/kullanim-kosullari" },
+          ]} />
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extralight text-foreground mb-3">Kullanım Koşulları</h1>
             <p className="text-sm text-muted-foreground">Son güncelleme: 2025-01-01</p>

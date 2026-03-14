@@ -1,6 +1,7 @@
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import AboutTabs from "@/components/site/AboutTabs";
+import Breadcrumb from "@/components/site/Breadcrumb";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
     description: "2003'ten beri prefabrik yapı sektöründe hizmet veren Erdem Prefabrik. 20+ yıllık deneyim, 1000+ başarılı proje ile güvenilir hizmet.",
     type: "website",
     locale: "tr_TR",
-    siteName: "Erdem Prefabrik"
+    siteName: "Erdem Prefabrik",
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
   },
   robots: {
     index: true,
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://erdemprefabrik.com/hakkimizda"
+    canonical: "https://erdemprefabrik.com/hakkimizda/"
   }
 };
 
@@ -38,6 +40,10 @@ export default function HakkimizdaPage() {
       
       <section className="py-24 bg-secondary min-h-[calc(100vh-200px)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { name: "Ana Sayfa", href: "/" },
+            { name: "Hakkımızda", href: "/hakkimizda" },
+          ]} />
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extralight text-foreground mb-6">
               Hakkımızda

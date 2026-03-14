@@ -82,7 +82,7 @@ const CategoryCards = () => {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <Image src={category.image} alt={category.title} fill className="object-cover" />
+                  <Image src={category.image} alt={category.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
                 </div>
 
                 {/* Centered Text with contained backdrop */}

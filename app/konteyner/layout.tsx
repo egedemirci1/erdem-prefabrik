@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: "Konteyner Yapılar | Erdem Prefabrik - Konteyner Ev, Ofis, WC & Güvenlik Kulübesi",
-  description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar. Hızlı kurulum, uygun fiyat.",
-  keywords: "konteyner ev, konteyner ofis, konteyner WC, güvenlik kulübesi, mobil konteyner, konteyner fiyat, konteyner projeler",
+  description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar. Hızlı kurulum, uygun fiyat. Konya merkezli, Türkiye geneli hizmet.",
+  keywords: "konteyner ev, konteyner ofis, konteyner WC, güvenlik kulübesi, mobil konteyner, konteyner fiyat, konteyner projeler, konteyner ev fiyatları",
   openGraph: {
     title: "Konteyner Yapılar | Erdem Prefabrik",
     description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar.",
     type: "website",
     locale: "tr_TR",
-    siteName: "Erdem Prefabrik"
+    siteName: "Erdem Prefabrik",
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
   },
   robots: {
     index: true,
@@ -23,10 +25,38 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://erdemprefabrik.com/konteyner"
+    canonical: "https://erdemprefabrik.com/konteyner/"
   }
 };
 
 export default function KonteynerLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <Script id="konteyner-service-jsonld" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Konteyner Yapılar",
+          description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar.",
+          provider: {
+            "@type": "LocalBusiness",
+            name: "Erdem Prefabrik",
+            url: "https://erdemprefabrik.com",
+            telephone: "+90 332 351 80 60",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Fetih Mahallesi, Adana Çevreyolu Caddesi No:119",
+              addressLocality: "Karatay",
+              addressRegion: "Konya",
+              postalCode: "42030",
+              addressCountry: "TR",
+            },
+          },
+          areaServed: { "@type": "Country", name: "Türkiye" },
+          serviceType: ["Konteyner Ev", "Konteyner Ofis", "Güvenlik Kulübesi", "WC & Duş Kabini"],
+        })}
+      </Script>
+      {children}
+    </>
+  );
 }

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "prefabrik ofis",
   ],
   authors: [{ name: "Erdem Prefabrik" }],
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://erdemprefabrik.com/" },
   openGraph: {
     title: "Erdem Prefabrik - Zerafetin Modüler Hali",
     description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "/",
     siteName: "Erdem Prefabrik",
-    images: [{ url: "/images/Logo.png", width: 512, height: 512, alt: "Erdem Prefabrik" }],
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
   },
   robots: { index: true, follow: true },
 };
@@ -51,7 +51,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
       </head>
-      <body suppressHydrationWarning className={`${montserrat.variable} font-montserrat antialiased`}>
+        <body className={`${montserrat.variable} font-montserrat antialiased`}>
         {/* Organization JSON-LD */}
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({

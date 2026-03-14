@@ -1,8 +1,22 @@
-"use client";
 import type { Metadata } from "next";
-
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import Breadcrumb from "@/components/site/Breadcrumb";
+
+export const metadata: Metadata = {
+  title: "Gizlilik Politikası | Erdem Prefabrik",
+  description: "Erdem Prefabrik gizlilik politikası. Kişisel verilerin korunması, KVKK uyumu, çerez politikası ve veri işleme süreçleri hakkında bilgiler.",
+  openGraph: {
+    title: "Gizlilik Politikası | Erdem Prefabrik",
+    description: "Kişisel verilerin korunması, KVKK uyumu ve çerez politikası hakkında bilgiler.",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Erdem Prefabrik",
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://erdemprefabrik.com/gizlilik/" },
+};
 
 export default function GizlilikPolitikasiPage() {
   return (
@@ -10,6 +24,10 @@ export default function GizlilikPolitikasiPage() {
       <Header />
       <section className="py-24 bg-secondary">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { name: "Ana Sayfa", href: "/" },
+            { name: "Gizlilik Politikası", href: "/gizlilik" },
+          ]} />
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extralight text-foreground mb-3">Gizlilik Politikası</h1>
             <p className="text-sm text-muted-foreground">Son güncelleme: 2025-01-01</p>

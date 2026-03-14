@@ -1,11 +1,13 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Header from "@/components/site/Header";
 import Hero from "@/components/site/Hero";
 import CategoryCards from "@/components/site/CategoryCards";
-import PortfolioGrid from "@/components/site/PortfolioGrid";
-import TechnicalFeatures from "@/components/site/TechnicalFeatures";
-import AboutSection from "@/components/site/AboutSection";
 import Footer from "@/components/site/Footer";
+
+const PortfolioGrid = dynamic(() => import("@/components/site/PortfolioGrid"), { ssr: true });
+const TechnicalFeatures = dynamic(() => import("@/components/site/TechnicalFeatures"), { ssr: true });
+const AboutSection = dynamic(() => import("@/components/site/AboutSection"), { ssr: true });
 
 export const metadata: Metadata = {
   title: "Erdem Prefabrik - 20+ Yıllık Deneyimle Prefabrik Yapı Çözümleri | Ana Sayfa",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://erdemprefabrik.com"
+    canonical: "https://erdemprefabrik.com/"
   }
 };
 

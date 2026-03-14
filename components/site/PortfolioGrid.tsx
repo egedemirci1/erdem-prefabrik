@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import GalleryModal from "@/components/site/GalleryModal";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState, useMemo } from "react";
 import projectsData from '@/data/projects.json';
 
 const PortfolioGrid = () => {
@@ -20,15 +21,9 @@ const PortfolioGrid = () => {
     category: string;
   };
 
-  const [items, setItems] = useState<PortfolioItem[]>([]);
+  const items = useMemo(() => (projectsData as PortfolioItem[]).slice(0, 8), []);
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
-
-  useEffect(() => {
-    // Projeler verisinden ilk 8 projeyi al
-    const featuredProjects = (projectsData as PortfolioItem[]).slice(0, 8);
-    setItems(featuredProjects);
-  }, []);
 
   return (
     <section className="py-24 bg-background">
@@ -73,10 +68,9 @@ const PortfolioGrid = () => {
                     alt={project.title} 
                     fill 
                     sizes="(max-width:768px) 100vw, 25vw" 
-                    className="object-cover" 
-                    onError={() => {
-                      console.error('Image failed to load:', project.image);
-                    }}
+                    quality={80}
+                    loading="lazy"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
                 </div>
@@ -154,52 +148,16 @@ const PortfolioGrid = () => {
         </motion.div>
       </div>
 
-      {/* Gallery Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="relative w-full max-w-5xl bg-white rounded-2xl overflow-hidden">
-            <div className="relative w-full h-[60vh]">
-              <Image
-                src={selectedProject.images[selectedImageIdx] || selectedProject.image}
-                alt={selectedProject.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-                quality={90}
-                priority={true}
-                className="object-contain bg-black"
-                onError={() => {
-                  console.error('Modal image failed to load:', selectedProject.images[selectedImageIdx] || selectedProject.image);
-                }}
-              />
-            </div>
-            <div className="p-4 flex items-center justify-between">
-              <div>
-                <div className="text-lg font-medium">{selectedProject.title}</div>
-                <div className="text-sm text-muted-foreground">{selectedProject.specs}</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.max(0, i - 1))}>Önceki</Button>
-                <Button variant="outline" onClick={() => setSelectedImageIdx((i) => Math.min((selectedProject.images.length - 1), i + 1))}>Sonraki</Button>
-                <Button onClick={() => setSelectedProject(null)}>Kapat</Button>
-              </div>
-            </div>
-            <div className="px-4 pb-4 grid grid-cols-6 gap-2 max-h-40 overflow-auto">
-              {selectedProject.images.map((img, idx) => (
-                <div key={img} className={`relative h-16 cursor-pointer rounded ${idx === selectedImageIdx ? 'ring-2 ring-accent' : ''}`} onClick={() => setSelectedImageIdx(idx)}>
-                  <Image 
-                    src={img} 
-                    alt={`thumb-${idx}`} 
-                    fill 
-                    sizes="(max-width: 768px) 15vw, 10vw" 
-                    quality={70}
-                    loading="lazy"
-                    className="object-cover" 
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <GalleryModal
+          title={selectedProject.title}
+          specs={selectedProject.specs}
+          images={selectedProject.images}
+          mainImage={selectedProject.image}
+          selectedIdx={selectedImageIdx}
+          onIndexChange={setSelectedImageIdx}
+          onClose={() => setSelectedProject(null)}
+        />
       )}
     </section>
   );

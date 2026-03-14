@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
 
 export default function TinyHousePage() {
-  redirect('/moduler?category=bungalow');
+  redirect('/moduler?category=tiny-house');
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Mail } from "lucide-react";
 import Image from "next/image";
@@ -9,11 +9,8 @@ import Link from "next/link";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slides, setSlides] = useState<{
-    title: string;
-    subtitle: string;
-    image?: string;
-  }[]>([
+
+  const slides = [
     {
       title: "Zerafetin Modüler Hali",
       subtitle: "Modern Yaşamın İhtiyaçlarına Uygun Ve Estetik Çözümler Sunuyoruz.",
@@ -32,7 +29,7 @@ const Hero = () => {
       image:
         "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow5/2_Photo - 1.jpg",
     },
-  ]);
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -148,6 +145,7 @@ const Hero = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
+              aria-label={`Slayt ${index + 1}: ${slides[index].title}`}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? "bg-white scale-125"

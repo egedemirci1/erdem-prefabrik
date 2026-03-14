@@ -37,15 +37,20 @@ const AboutTabs = () => {
   return (
     <div className="w-full">
       {/* Tab Navigation */}
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-8 justify-center">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-8 justify-center" role="tablist" aria-label="Hakkımızda sekmeleri">
         {tabs.map((tab) => {
           const Icon = tab.icon;
+          const isActive = active === tab.id;
           return (
             <button
               key={tab.id}
-                    onClick={() => setActive(tab.id as "mission" | "vision" | "story")}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`tabpanel-${tab.id}`}
+              id={`tab-${tab.id}`}
+              onClick={() => setActive(tab.id as "mission" | "vision" | "story")}
               className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all duration-300 ${
-                active === tab.id
+                isActive
                   ? "bg-accent text-white shadow-lg transform scale-105"
                   : "bg-white text-foreground hover:bg-secondary hover:shadow-md"
               }`}
@@ -58,7 +63,12 @@ const AboutTabs = () => {
       </div>
 
       {/* Content Area */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100">
+      <div
+        className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100"
+        role="tabpanel"
+        id={`tabpanel-${active}`}
+        aria-labelledby={`tab-${active}`}
+      >
         <div className="text-center mb-8">
           <h3 className="text-2xl sm:text-3xl font-light text-foreground mb-4">
             {tabs.find(tab => tab.id === active)?.title}

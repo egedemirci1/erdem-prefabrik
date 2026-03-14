@@ -4,9 +4,19 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, Instagram, Facebook, Send, ArrowUp, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Mail, Phone, Instagram, Facebook, Send, ArrowUp, MessageCircle, CheckCircle } from "lucide-react";
 
 const Footer = () => {
+  const [isScrollVisible, setIsScrollVisible] = useState(false);
+  const [newsletterMsg, setNewsletterMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrollVisible(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -106,8 +116,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/prefabrik-celik/celik-ofis" className="text-white/80 hover:text-accent transition-colors duration-300 text-sm font-light">
-                    Çelik Ofis Yapıları
+                  <Link href="/prefabrik-celik/celik-ev-villa" className="text-white/80 hover:text-accent transition-colors duration-300 text-sm font-light">
+                    Çelik Ev & Villa
                   </Link>
                 </li>
               </ul>
@@ -128,6 +138,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.name}
                     className={`w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:text-white transition-all duration-300 ${social.color}`}
                   >
                     <social.icon className="w-5 h-5" />
@@ -171,38 +182,45 @@ const Footer = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full lg:w-auto items-center">
               <Input
+                id="newsletter-email"
                 type="email"
                 placeholder="E-posta adresiniz"
+                aria-label="E-bülten için e-posta adresiniz"
                 className="w-full sm:w-64 h-12 rounded-xl border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white/40 focus:ring-white/20"
               />
               <Button
                 className="bg-white text-accent hover:bg-white/90 h-12 px-6 rounded-xl font-medium"
                 onClick={() => {
-                  const input = document.querySelector<HTMLInputElement>('footer input[type="email"]');
+                  const input = document.getElementById('newsletter-email') as HTMLInputElement | null;
                   const email = input?.value?.trim() || '';
-                  if (!email) return alert('Lütfen e‑posta adresinizi girin');
-                  
-                  // Email validation
+                  if (!email) {
+                    setNewsletterMsg({ type: 'error', text: 'Lütfen e‑posta adresinizi girin.' });
+                    return;
+                  }
                   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                   if (!emailRegex.test(email)) {
-                    return alert('Lütfen geçerli bir e‑posta adresi girin');
+                    setNewsletterMsg({ type: 'error', text: 'Lütfen geçerli bir e‑posta adresi girin.' });
+                    return;
                   }
-                  
-                  // Open mail client
                   const subject = encodeURIComponent('Newsletter Aboneliği');
                   const body = encodeURIComponent(`Merhaba,\n\nE-bülten aboneliği için başvuru yapıyorum.\n\nE-posta: ${email}\n\nTeşekkürler.`);
                   window.open(`mailto:info@erdemprefabrikev.com?subject=${subject}&body=${body}`);
-                  
-                  // Clear input after opening mail client
                   if (input) input.value = '';
-                  alert('E-posta uygulamanız açılacak. Lütfen gönder butonuna basın.');
+                  setNewsletterMsg({ type: 'success', text: 'E-posta uygulamanız açılacak.' });
+                  setTimeout(() => setNewsletterMsg(null), 4000);
                 }}
               >
                 <Send className="w-4 h-4 mr-2" />
                 Abone Ol
               </Button>
+              {newsletterMsg && (
+                <span className={`text-sm font-medium ${newsletterMsg.type === 'error' ? 'text-red-300' : 'text-green-300'}`}>
+                  {newsletterMsg.type === 'success' && <CheckCircle className="w-4 h-4 inline mr-1" />}
+                  {newsletterMsg.text}
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -213,7 +231,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm font-light">
-              © 2025 Erdem Prefabrik. Tüm Hakları Saklıdır.
+              © {new Date().getFullYear()} Erdem Prefabrik. Tüm Hakları Saklıdır.
             </div>
             
             <div className="flex items-center space-x-6">
@@ -229,14 +247,20 @@ const Footer = () => {
       </div>
 
       {/* Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-accent hover:bg-accent/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 flex items-center justify-center"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <ArrowUp className="w-5 h-5" />
-      </motion.button>
+      {isScrollVisible && (
+        <motion.button
+          onClick={scrollToTop}
+          aria-label="Sayfanın başına dön"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          className="fixed bottom-8 right-8 w-12 h-12 bg-accent hover:bg-accent/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 flex items-center justify-center"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.button>
+      )}
     </footer>
   );
 };

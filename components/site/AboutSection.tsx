@@ -10,7 +10,7 @@ const AboutSection = () => {
   const stats = [
     {
       id: 1,
-      number: "500+",
+      number: "1000+",
       label: "Tamamlanan Proje",
       icon: Award,
     },
@@ -117,7 +117,7 @@ const AboutSection = () => {
             className="relative"
           >
             <div className="relative h-[400px] sm:h-[600px] rounded-2xl shadow-xl overflow-hidden">
-              <Image src="/images/slider-2.jpg" alt="Erdem Prefabrik" fill priority className="object-cover" />
+              <Image src="/images/slider-2.jpg" alt="Erdem Prefabrik Yapı Alanı" fill sizes="(max-width: 1024px) 100vw, 50vw" loading="lazy" className="object-cover" />
               <div className="absolute inset-0 bg-black/20" />
             </div>
 
