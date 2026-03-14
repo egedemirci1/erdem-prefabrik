@@ -49,7 +49,7 @@ export default function ModulerClient({ initialProjects }: { initialProjects: Pr
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={breadcrumbItems} />
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-extralight text-foreground mb-6">{title}</h1>
+            <h1 className="text-4xl font-extralight text-foreground mb-6">{title} | Konya Prefabrik - Erdem Prefabrik</h1>
             <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">{description}</p>
           </div>
 

@@ -82,6 +82,47 @@ npm run build
 npm run start
 ```
 
+## Yerel SEO (NAP / Google İşletmem)
+
+Arama sonuçlarında hem harita hem web sitesinin güçlü çıkması için sitedeki NAP (Name, Address, Phone) bilgileri ile **Google İşletmem (Google Business Profile)** kaydı bire bir aynı olmalı. Periyodik kontrol listesi:
+
+- **İşletme adı:** Sitede "Erdem Prefabrik" / "Erdem Prefabrik Konya" kullanılıyor; GBP’de aynı isim olmalı.
+- **Adres:** Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı, Karatay / KONYA — GBP adresi kelime kelime aynı yazılmalı.
+- **Telefon:** +90 332 351 80 60 (ve varsa ikinci numara) — GBP’de aynı numara(lar) görünmeli.
+- **Web sitesi:** Canonical adres (https://erdemprefabrik.com) GBP’de "Web sitesi" alanına yazılmalı.
+
+Bu tutarlılık, "Konya erdem prefabrik" gibi aramalarda harita paneli ile organik sonuçların birlikte güçlenmesine yardımcı olur.
+
+## Google Search Console – "Ben Buradayım" Demek
+
+Google'ın sitenizi hemen bulması için Search Console üzerinden siteyi tanıtın. Kendi kendine bulmasını beklersen haftalar sürebilir.
+
+### 1. Hesap aç ve siteyi ekle
+
+1. [Google Search Console](https://search.google.com/search-console) sayfasına gidin.
+2. **Mülk ekle** (veya "Add property") ile sitenin domain'ini ekleyin:
+   - **Alan adı (Domain):** `erdemprefabrik.com` — tüm alt alan adları (www, vb.) dahil edilir.
+   - Veya **URL öneki:** Tam adresiniz neyse (örn. `https://www.erdemprefabrikev.com` veya Vercel linki) onu girin.
+3. Sahipliği doğrulayın (DNS TXT kaydı veya HTML dosyası / meta etiket — ekrandaki talimatları izleyin).
+
+### 2. Site haritasını gönder
+
+1. Sol menüden **Site haritaları** (Sitemaps) sekmesine girin.
+2. **Yeni site haritası ekle** alanına şunu yazın:  
+   `sitemap.xml`  
+   (Tam URL: `https://erdemprefabrik.com/sitemap.xml` — canlı domain'iniz neyse o geçerli.)
+3. **Gönder** (Submit) butonuna tıklayın.  
+   Sitemap, projede `pnpm run build` sonrası `postbuild` ile otomatik üretilir; canlı sitede `/sitemap.xml` adresi çalışıyor olmalı.
+
+### 3. Ana sayfayı hemen tarat
+
+1. Search Console üstündeki **URL denetleme** (URL Inspection) arama çubuğuna sitenin ana sayfa URL'sini yapıştırın (örn. `https://erdemprefabrik.com/` veya `https://www.erdemprefabrikev.com/`).
+2. Enter'a basın.
+3. **Dizine eklenmesini iste** (Request Indexing) butonuna tıklayın.  
+   Bu işlem Google botlarını sitenize kısa süre içinde gönderir; sonuçlar birkaç gün içinde görülebilir.
+
+Bu üç adım, "Konya prefabrik" gibi aramalarda sitenin daha hızlı listelenmesine yardımcı olur.
+
 ## 📄 Lisans
 
 Bu proje Erdem Prefabrik'e aittir.

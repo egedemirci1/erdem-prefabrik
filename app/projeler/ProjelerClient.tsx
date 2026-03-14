@@ -86,7 +86,7 @@ export default function ProjelerClient({ initialProjects }: { initialProjects: P
           ]} />
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extralight text-foreground mb-6">
-              Projelerimiz
+              Projelerimiz | Konya Prefabrik - Erdem Prefabrik
             </h1>
             <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">
               Tamamladığımız Başarılı Projelerden Örnekler

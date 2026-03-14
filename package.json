@@ -10,7 +10,8 @@
     "postbuild": "next-sitemap",
     "split-projects": "node scripts/split-projects.js",
     "generate-favicon": "node scripts/generate-favicon.js",
-    "prebuild": "node scripts/split-projects.js"
+    "generate-header-logo": "node scripts/generate-header-logo.js",
+    "prebuild": "node scripts/split-projects.js && node scripts/generate-homepage-opt-images.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

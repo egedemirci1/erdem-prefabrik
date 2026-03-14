@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Konteyner Yapılar | Erdem Prefabrik - Konteyner Ev, Ofis, WC & Güvenlik Kulübesi",
-  description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar. Hızlı kurulum, uygun fiyat. Konya merkezli, Türkiye geneli hizmet.",
-  keywords: "konteyner ev, konteyner ofis, konteyner WC, güvenlik kulübesi, mobil konteyner, konteyner fiyat, konteyner projeler, konteyner ev fiyatları",
+  title: "Konteyner Yapılar | Konya Prefabrik - Erdem Prefabrik",
+  description: "Konya prefabrik konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi. Mobil ve pratik konteyner yapılar. Hızlı kurulum, uygun fiyat. Konya Karatay merkezli, Türkiye geneli hizmet.",
+  keywords: "Konya konteyner, konteyner ev, konteyner ofis, konteyner WC, güvenlik kulübesi, mobil konteyner, konteyner fiyat, Konya prefabrik",
   openGraph: {
-    title: "Konteyner Yapılar | Erdem Prefabrik",
-    description: "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar.",
+    title: "Konteyner Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi. Erdem Prefabrik Konya.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",

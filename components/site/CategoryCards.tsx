@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Home, Package, Truck } from "lucide-react";
+import { getOptimizedImagePath } from "@/lib/optimized-image";
 
 const CategoryCards = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -82,7 +83,7 @@ const CategoryCards = () => {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <Image src={category.image} alt={category.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
+                  <Image src={getOptimizedImagePath(category.image)} alt={category.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
                 </div>
 
                 {/* Centered Text with contained backdrop */}

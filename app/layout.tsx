@@ -11,27 +11,34 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://erdemprefabrik.com"),
-  title: "Erdem Prefabrik - Zerafetin Modüler Hali",
+  title: {
+    default: "Konya Prefabrik | Erdem Prefabrik - Prefabrik Ev, Modüler Yapı, Konteyner",
+    template: "%s | Erdem Prefabrik Konya",
+  },
   description:
-    "Erdem Prefabrik olarak prefabrik ev, modüler yapılar ve konteyner çözümleri sunuyoruz. Kaliteli malzeme, enerji verimliliği ve hızlı kurulum.",
+    "Konya prefabrik ev, modüler yapı ve konteyner çözümleri. Erdem Prefabrik 20+ yıldır Konya Karatay merkezli, Türkiye genelinde prefabrik ev, villa ve şantiye yapıları sunuyor. Ücretsiz keşif ve fiyat teklifi.",
   keywords: [
+    "Konya prefabrik",
+    "Konya prefabrik ev",
+    "Erdem Prefabrik",
     "prefabrik ev",
     "modüler ev",
     "konteyner",
+    "Karatay prefabrik",
     "çelik yapılar",
     "prefabrik ofis",
   ],
-  authors: [{ name: "Erdem Prefabrik" }],
+  authors: [{ name: "Erdem Prefabrik", url: "https://erdemprefabrik.com" }],
   alternates: { canonical: "https://erdemprefabrik.com/" },
   openGraph: {
-    title: "Erdem Prefabrik - Zerafetin Modüler Hali",
+    title: "Konya Prefabrik | Erdem Prefabrik - Prefabrik Ev, Modüler Yapı",
     description:
-      "Kaliteli prefabrik ev, modüler yapılar ve konteyner çözümleri",
+      "Konya'da prefabrik ev, modüler yapı ve konteyner. Erdem Prefabrik 20+ yıllık deneyim, Konya merkezli Türkiye geneli hizmet.",
     type: "website",
     locale: "tr_TR",
     url: "/",
     siteName: "Erdem Prefabrik",
-    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik" }],
+    images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik - Konya Prefabrik" }],
   },
   robots: { index: true, follow: true },
 };
@@ -44,6 +51,12 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        {/* LCP: ana sayfa hero görselini önceden yükle */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow1/bilinmeyenm2.JPG"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -52,12 +65,13 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
       </head>
         <body className={`${montserrat.variable} font-montserrat antialiased`}>
-        {/* Organization JSON-LD */}
+        {/* Organization JSON-LD – NAP (name, address, phone) must match Google İşletmem / Business Profile exactly for local SEO. */}
         <Script id="org-jsonld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Erdem Prefabrik",
+            alternateName: "Erdem Prefabrik Konya",
             url: "https://erdemprefabrik.com",
             logo: "https://erdemprefabrik.com/images/Logo.png",
             sameAs: [
@@ -76,7 +90,7 @@ export default function RootLayout({
               "@type": "ContactPoint",
               telephone: "+90 332 351 80 60",
               contactType: "customer service",
-              areaServed: "TR",
+              areaServed: ["Konya", "TR"],
               availableLanguage: ["tr"],
             }],
           })}

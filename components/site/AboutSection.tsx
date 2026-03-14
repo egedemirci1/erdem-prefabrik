@@ -129,9 +129,9 @@ const AboutSection = () => {
               viewport={{ once: true }}
               className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 bg-white rounded-2xl shadow-xl p-4 sm:p-6 max-w-xs"
             >
-              <h4 className="text-lg font-light text-foreground mb-2">
+              <h3 className="text-lg font-light text-foreground mb-2">
                 Müşteri Memnuniyeti
-              </h4>
+              </h3>
               <p className="text-sm text-muted-foreground font-light">
                 %98 müşteri memnuniyet oranı ile sektörde öncü konumdayız.
               </p>

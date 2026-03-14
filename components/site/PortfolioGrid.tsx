@@ -7,7 +7,8 @@ import { ArrowRight } from "lucide-react";
 import GalleryModal from "@/components/site/GalleryModal";
 import Image from "next/image";
 import { useState, useMemo } from "react";
-import projectsData from '@/data/projects.json';
+import featuredProjects from '@/data/featured-projects.json';
+import { getOptimizedImagePath } from "@/lib/optimized-image";
 
 const PortfolioGrid = () => {
   type PortfolioItem = {
@@ -21,7 +22,7 @@ const PortfolioGrid = () => {
     category: string;
   };
 
-  const items = useMemo(() => (projectsData as PortfolioItem[]).slice(0, 8), []);
+  const items = useMemo(() => featuredProjects as PortfolioItem[], []);
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
@@ -64,7 +65,7 @@ const PortfolioGrid = () => {
               >
                 <div className={`h-56 sm:h-64 relative`}>
                   <Image 
-                    src={project.image} 
+                    src={getOptimizedImagePath(project.image)} 
                     alt={project.title} 
                     fill 
                     sizes="(max-width:768px) 100vw, 25vw" 

@@ -7,12 +7,12 @@ import Breadcrumb from "@/components/site/Breadcrumb";
 import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "İletişim | Erdem Prefabrik - Prefabrik Ev Fiyat Teklifi Alın",
-  description: "Prefabrik ev, modüler yapı ve konteyner projeleriniz için ücretsiz fiyat teklifi alın. Konya merkezli, Türkiye geneli hizmet. Telefon: +90 332 351 80 60",
-  keywords: "prefabrik ev fiyat, prefabrik ev teklifi, modüler yapı fiyat, konteyner fiyat, prefabrik iletişim, Konya prefabrik, ücretsiz keşif",
+  title: "İletişim | Konya Prefabrik - Erdem Prefabrik Fiyat Teklifi",
+  description: "Konya prefabrik ev, modüler yapı ve konteyner için ücretsiz fiyat teklifi. Erdem Prefabrik Konya Karatay. Telefon: 0332 351 80 60.",
+  keywords: "Konya prefabrik iletişim, prefabrik ev fiyat, prefabrik ev teklifi, Erdem Prefabrik telefon, Karatay prefabrik, ücretsiz keşif",
   openGraph: {
-    title: "İletişim | Erdem Prefabrik",
-    description: "Prefabrik ev, modüler yapı ve konteyner projeleriniz için ücretsiz fiyat teklifi alın. Konya merkezli, Türkiye geneli hizmet.",
+    title: "İletişim | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya prefabrik ev, modüler yapı ve konteyner için ücretsiz fiyat teklifi. Konya Karatay merkezli hizmet.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",
@@ -46,6 +46,7 @@ export default function IletisimPage() {
           mainEntity: {
             "@type": "LocalBusiness",
             name: "Erdem Prefabrik",
+            alternateName: "Erdem Prefabrik Konya",
             telephone: "+90 332 351 80 60",
             email: "info@erdemprefabrikev.com",
             address: {
@@ -55,6 +56,8 @@ export default function IletisimPage() {
               addressRegion: "Konya",
               addressCountry: "TR",
             },
+            geo: { "@type": "GeoCoordinates", latitude: 37.8746, longitude: 32.4932 },
+            areaServed: [{ "@type": "City", name: "Konya" }, { "@type": "Country", name: "Türkiye" }],
             openingHoursSpecification: [
               { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
               { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday"], opens: "09:00", closes: "14:00" },
@@ -71,9 +74,9 @@ export default function IletisimPage() {
             { name: "İletişim", href: "/iletisim" },
           ]} />
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-extralight text-foreground mb-4">İletişim</h1>
+            <h1 className="text-4xl font-extralight text-foreground mb-4">Konya Prefabrik — İletişim</h1>
             <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">
-              İhtiyacınıza Uygun Çözümler Sunuyoruz
+              Konya prefabrik ev, modüler yapı ve konteyner projeleriniz için ücretsiz fiyat teklifi alın. İhtiyacınıza uygun çözümler sunuyoruz.
             </p>
             <div className="mt-4 h-px w-96 mx-auto bg-muted-foreground/80" />
           </div>

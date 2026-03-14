@@ -6,12 +6,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda | Erdem Prefabrik - 20+ Yıllık Deneyimle Prefabrik Yapı Çözümleri",
-  description: "2003'ten beri prefabrik yapı sektöründe hizmet veren Erdem Prefabrik. 20+ yıllık deneyim, 1000+ başarılı proje, kaliteli malzeme ve güvenilir hizmet anlayışımızla müşterilerimizin hayallerini gerçeğe dönüştürüyoruz.",
-  keywords: "Erdem Prefabrik hakkında, prefabrik yapı deneyimi, 20 yıllık deneyim, prefabrik şirket, modüler yapı uzmanı, Konya prefabrik firması, güvenilir prefabrik",
+  title: "Hakkımızda | Konya Prefabrik - Erdem Prefabrik",
+  description: "Konya prefabrik firması Erdem Prefabrik. 2003'ten beri Konya Karatay merkezli prefabrik yapı sektöründe hizmet veriyoruz. 20+ yıllık deneyim, 1000+ başarılı proje.",
+  keywords: "Konya prefabrik, Erdem Prefabrik hakkında, Konya prefabrik firması, prefabrik yapı deneyimi, 20 yıllık deneyim, Karatay prefabrik, modüler yapı Konya",
   openGraph: {
-    title: "Hakkımızda | Erdem Prefabrik",
-    description: "2003'ten beri prefabrik yapı sektöründe hizmet veren Erdem Prefabrik. 20+ yıllık deneyim, 1000+ başarılı proje ile güvenilir hizmet.",
+    title: "Hakkımızda | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya prefabrik firması Erdem Prefabrik. 2003'ten beri Konya Karatay merkezli prefabrik yapı sektöründe hizmet. 20+ yıl deneyim.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",
@@ -46,10 +46,10 @@ export default function HakkimizdaPage() {
           ]} />
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extralight text-foreground mb-6">
-              Hakkımızda
+              Konya Prefabrik — Erdem Prefabrik Hakkımızda
             </h1>
             <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">
-              Prefabrik Yapı Sektöründe Kalite Ve Güvenin Doğru Adresi
+              Konya ve Türkiye genelinde prefabrik yapı sektöründe kalite ve güvenin adresi
             </p>
             <div className="mt-4 h-px w-96 mx-auto bg-muted-foreground/80" />
           </div>

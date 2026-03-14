@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Prefabrik & Çelik Yapılar | Erdem Prefabrik - Prefabrik Ev, Villa, Ofis & Şantiye",
-  description: "Prefabrik ev, villa, ofis ve şantiye yapıları. Çelik konstrüksiyonlu dayanıklı yapılar. Hızlı kurulum, kaliteli malzeme, uygun fiyat. Konya merkezli, Türkiye geneli hizmet.",
-  keywords: "prefabrik ev, prefabrik villa, çelik ev, çelik villa, prefabrik ofis, şantiye yapısı, prefabrik fiyat, çelik yapı fiyat, prefabrik ev fiyatları",
+  title: "Prefabrik & Çelik Yapılar | Konya Prefabrik - Erdem Prefabrik",
+  description: "Konya prefabrik ev, villa, ofis ve şantiye yapıları. Çelik konstrüksiyonlu dayanıklı yapılar. Hızlı kurulum, kaliteli malzeme. Konya Karatay merkezli, Türkiye geneli hizmet.",
+  keywords: "Konya prefabrik ev, prefabrik ev, prefabrik villa, çelik ev, prefabrik ofis, şantiye yapısı, Karatay prefabrik, prefabrik ev fiyatları",
   openGraph: {
-    title: "Prefabrik & Çelik Yapılar | Erdem Prefabrik",
-    description: "Prefabrik ev, villa, ofis ve şantiye yapıları. Çelik konstrüksiyonlu dayanıklı yapılar.",
+    title: "Prefabrik & Çelik Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya prefabrik ev, villa, ofis ve şantiye. Erdem Prefabrik Konya.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",

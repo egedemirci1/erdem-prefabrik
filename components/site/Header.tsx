@@ -85,7 +85,7 @@ const Header = () => {
               transition={{ duration: 0.5 }}
             >
               <Image 
-                src="/images/Logo.png" 
+                src="/images/Logo-header.png" 
                 alt="Erdem Prefabrik" 
                 width={105} 
                 height={25} 

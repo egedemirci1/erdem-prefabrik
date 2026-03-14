@@ -23,6 +23,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Ana Sayfa", href: "/" },
+    { name: "Konya Prefabrik", href: "/" },
     { name: "Projelerimiz", href: "/projeler" },
     { name: "Hakkımızda", href: "/hakkimizda" },
     { name: "İletişim", href: "/iletisim" },
@@ -100,6 +101,11 @@ const Footer = () => {
             >
               <h4 className="text-lg font-medium mb-6">Hizmetlerimiz</h4>
               <ul className="space-y-3">
+                <li>
+                  <Link href="/" className="text-white/80 hover:text-accent transition-colors duration-300 text-sm font-light">
+                    Prefabrik Ev Konya
+                  </Link>
+                </li>
                 <li>
                   <Link href="/prefabrik-celik" className="text-white/80 hover:text-accent transition-colors duration-300 text-sm font-light">
                     Prefabrik Ev & Villa

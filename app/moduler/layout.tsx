@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Modüler Yapılar | Erdem Prefabrik - Modüler Ev, Bungalow, Tiny House & Ofis",
-  description: "Modüler ev, bungalow, tiny house, ofis ve sıfır atık merkezi çözümleri. Esnek ve özelleştirilebilir modüler yapılar. Hızlı kurulum, kaliteli malzeme. Konya merkezli, Türkiye geneli hizmet.",
-  keywords: "modüler ev, bungalow, tiny house, modüler ofis, sıfır atık merkezi, modüler yapı, modüler projeler, modüler fiyat, tiny house fiyat",
+  title: "Modüler Yapılar | Konya Prefabrik - Erdem Prefabrik",
+  description: "Konya prefabrik modüler ev, bungalow, tiny house, ofis ve sıfır atık merkezi. Esnek modüler yapılar. Hızlı kurulum, kaliteli malzeme. Konya Karatay merkezli, Türkiye geneli hizmet.",
+  keywords: "Konya modüler ev, modüler ev, bungalow, tiny house, modüler ofis, sıfır atık merkezi, Konya prefabrik, modüler fiyat",
   openGraph: {
-    title: "Modüler Yapılar | Erdem Prefabrik",
-    description: "Modüler ev, bungalow, tiny house, ofis ve sıfır atık merkezi çözümleri. Esnek ve özelleştirilebilir modüler yapılar.",
+    title: "Modüler Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya modüler ev, bungalow, tiny house, ofis. Erdem Prefabrik Konya.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",

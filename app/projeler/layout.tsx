@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Projelerimiz | Erdem Prefabrik - Başarıyla Tamamlanan Prefabrik Projeler",
-  description: "20+ yıllık deneyimimizle tamamladığımız prefabrik ev, modüler yapı, konteyner ve çelik yapı projelerimizi inceleyin. 1000+ başarılı proje referansımız. Konya merkezli, Türkiye geneli.",
-  keywords: "prefabrik projeler, modüler projeler, konteyner projeler, çelik yapı projeler, prefabrik ev örnekleri, başarılı projeler, referans projeler, proje galerisi",
+  title: "Projelerimiz | Konya Prefabrik - Erdem Prefabrik Referanslar",
+  description: "Konya prefabrik projeleri. Erdem Prefabrik 20+ yıllık deneyimle tamamladığı prefabrik ev, modüler yapı, konteyner ve çelik yapı projeleri. 1000+ referans. Konya merkezli, Türkiye geneli.",
+  keywords: "Konya prefabrik projeleri, prefabrik projeler, modüler projeler, konteyner projeler, prefabrik ev örnekleri, Erdem Prefabrik referanslar",
   openGraph: {
-    title: "Projelerimiz | Erdem Prefabrik",
-    description: "20+ yıllık deneyimimizle tamamladığımız prefabrik ev, modüler yapı, konteyner ve çelik yapı projelerimizi inceleyin.",
+    title: "Projelerimiz | Konya Prefabrik - Erdem Prefabrik",
+    description: "Konya prefabrik projeleri. 20+ yıl deneyim, 1000+ referans. Erdem Prefabrik.",
     type: "website",
     locale: "tr_TR",
     siteName: "Erdem Prefabrik",
