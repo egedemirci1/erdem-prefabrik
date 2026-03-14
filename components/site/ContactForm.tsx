@@ -89,6 +89,11 @@ const ContactForm = () => {
 
     if (!validate()) return;
 
+    if (!supabase) {
+      setErrors({ _form: 'İletişim formu şu an yapılandırılmıyor. Lütfen bizi telefon veya e-posta ile arayın.' });
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const { error } = await supabase
