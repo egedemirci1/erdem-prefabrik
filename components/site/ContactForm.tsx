@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 // --- Sanitization ---
 function sanitize(input: string): string {
