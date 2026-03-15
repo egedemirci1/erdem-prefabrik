@@ -41,6 +41,19 @@ export const metadata: Metadata = {
     images: [{ url: "/images/Logo.png", width: 1200, height: 630, alt: "Erdem Prefabrik - Konya Prefabrik" }],
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "ezUB7b9jWElEM7uQaQ8QWiJsruNsjSPO0c9dwLxL8VA",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
@@ -50,21 +63,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <head>
-        <meta name="google-site-verification" content="ezUB7b9jWElEM7uQaQ8QWiJsruNsjSPO0c9dwLxL8VA" />
-        {/* LCP: ana sayfa hero görselini önceden yükle */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow1/bilinmeyenm2.JPG"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
-      </head>
         <body className={`${montserrat.variable} font-montserrat antialiased`}>
         {/* Organization JSON-LD – NAP (name, address, phone) must match Google İşletmem / Business Profile exactly for local SEO. */}
         <Script id="org-jsonld" type="application/ld+json">

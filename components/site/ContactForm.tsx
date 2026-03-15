@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { supabase } from "@/lib/supabase";
 import { z } from "zod/v4";
 
 // --- Sanitization ---
@@ -89,31 +88,29 @@ const ContactForm = () => {
 
     if (!validate()) return;
 
-    if (!supabase) {
-      setErrors({ _form: 'İletişim formu şu an yapılandırılmıyor. Lütfen bizi telefon veya e-posta ile arayın.' });
+    const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL;
+    if (!scriptUrl) {
+      setErrors({ _form: 'İletişim formu kurulumu eksik (Google Sheets URL bulunamadı). Lütfen telefonla ulaşın.' });
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: sanitize(formData.name),
-            phone: sanitize(formData.phone),
-            email: sanitize(formData.email),
-            message: sanitize(formData.message),
-            created_at: new Date().toISOString()
-          }
-        ]);
+      const formDataToSend = new FormData();
+      formDataToSend.append("type", "iletisim");
+      formDataToSend.append("name", sanitize(formData.name));
+      formDataToSend.append("phone", sanitize(formData.phone));
+      formDataToSend.append("email", sanitize(formData.email));
+      formDataToSend.append("message", sanitize(formData.message));
 
-      if (error) {
-        setErrors({ _form: 'Gönderim başarısız oldu. Lütfen daha sonra tekrar deneyin.' });
-        setIsSubmitting(false);
-        return;
-      }
-      
+      // CORS Preflight sorunu yaşamamak için 'no-cors' kullanıyoruz
+      await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: formDataToSend,
+      });
+
+      // no-cors 'opaque' (okunamaz) yanıt döner, fetch hata fırlatmadığı için başarılı kabul ediyoruz
       setIsSubmitting(false);
       setIsSubmitted(true);
       setTimeout(() => {

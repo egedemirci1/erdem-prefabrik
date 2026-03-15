@@ -10,6 +10,8 @@ import { Mail, Phone, Instagram, Facebook, Send, ArrowUp, MessageCircle, CheckCi
 const Footer = () => {
   const [isScrollVisible, setIsScrollVisible] = useState(false);
   const [newsletterMsg, setNewsletterMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setIsScrollVisible(window.scrollY > 300);
@@ -184,42 +186,83 @@ const Footer = () => {
                 Güncel Projelerimizden Haberdar Olun
               </h4>
               <p className="text-white/90 font-light">
-                E-bültenimize abone olun, yeni projeler ve kampanyalardan ilk siz haberdar olun.
+                Bizimle iletişime geçmek ve kampanyalardan haberdar olmak için telefon numaranızı bırakın.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full lg:w-auto items-center">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full lg:w-auto items-center relative">
+              {/* Honeypot — botlar doldurur, gerçek kullanıcılar görmez */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <input
+                  type="text"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <Input
-                id="newsletter-email"
-                type="email"
-                placeholder="E-posta adresiniz"
-                aria-label="E-bülten için e-posta adresiniz"
+                id="newsletter-phone"
+                type="tel"
+                placeholder="Telefon Numaranız"
+                aria-label="İletişim için telefon numaranız"
                 className="w-full sm:w-64 h-12 rounded-xl border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white/40 focus:ring-white/20"
               />
               <Button
                 className="bg-white text-accent hover:bg-white/90 h-12 px-6 rounded-xl font-medium"
-                onClick={() => {
-                  const input = document.getElementById('newsletter-email') as HTMLInputElement | null;
-                  const email = input?.value?.trim() || '';
-                  if (!email) {
-                    setNewsletterMsg({ type: 'error', text: 'Lütfen e‑posta adresinizi girin.' });
+                disabled={isSubmitting}
+                onClick={async () => {
+                  // Honeypot check
+                  if (honeypot) {
+                    setNewsletterMsg({ type: 'success', text: 'Numaranız başarıyla alındı.' });
                     return;
                   }
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                  if (!emailRegex.test(email)) {
-                    setNewsletterMsg({ type: 'error', text: 'Lütfen geçerli bir e‑posta adresi girin.' });
+
+                  const input = document.getElementById('newsletter-phone') as HTMLInputElement | null;
+                  const phone = input?.value?.trim() || '';
+                  
+                  if (!phone) {
+                    setNewsletterMsg({ type: 'error', text: 'Lütfen telefon numaranızı girin.' });
                     return;
                   }
-                  const subject = encodeURIComponent('Newsletter Aboneliği');
-                  const body = encodeURIComponent(`Merhaba,\n\nE-bülten aboneliği için başvuru yapıyorum.\n\nE-posta: ${email}\n\nTeşekkürler.`);
-                  window.open(`mailto:info@erdemprefabrikev.com?subject=${subject}&body=${body}`);
-                  if (input) input.value = '';
-                  setNewsletterMsg({ type: 'success', text: 'E-posta uygulamanız açılacak.' });
-                  setTimeout(() => setNewsletterMsg(null), 4000);
+                  
+                  if (phone.length < 10) {
+                    setNewsletterMsg({ type: 'error', text: 'Lütfen geçerli bir telefon numarası girin.' });
+                    return;
+                  }
+
+                  const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL;
+                  if (!scriptUrl) {
+                    setNewsletterMsg({ type: 'error', text: 'Sistem geçici olarak kapalı.' });
+                    return;
+                  }
+
+                  setIsSubmitting(true);
+                  setNewsletterMsg(null);
+
+                  try {
+                    const formDataToSend = new FormData();
+                    formDataToSend.append("type", "bulten");
+                    formDataToSend.append("phone", phone);
+
+                    await fetch(scriptUrl, {
+                      method: "POST",
+                      mode: "no-cors",
+                      body: formDataToSend,
+                    });
+
+                    setNewsletterMsg({ type: 'success', text: 'Numaranız başarıyla alındı.' });
+                    if (input) input.value = '';
+                  } catch (error) {
+                    setNewsletterMsg({ type: 'error', text: 'Bağlantı hatası yaşandı.' });
+                  } finally {
+                    setIsSubmitting(false);
+                    setTimeout(() => setNewsletterMsg(null), 5000);
+                  }
                 }}
               >
                 <Send className="w-4 h-4 mr-2" />
-                Abone Ol
+                {isSubmitting ? "Gönderiliyor..." : "Abone Ol"}
               </Button>
               {newsletterMsg && (
                 <span className={`text-sm font-medium ${newsletterMsg.type === 'error' ? 'text-red-300' : 'text-green-300'}`}>
