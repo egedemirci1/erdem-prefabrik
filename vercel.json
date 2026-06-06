@@ -1,0 +1,224 @@
+{
+  "redirects": [
+    {
+      "source": "/tr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/about",
+      "destination": "/hakkimizda/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/about/",
+      "destination": "/hakkimizda/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/contact",
+      "destination": "/iletisim/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/contact/",
+      "destination": "/iletisim/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/projects",
+      "destination": "/projeler/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/projects/",
+      "destination": "/projeler/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/privacy",
+      "destination": "/gizlilik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/privacy/",
+      "destination": "/gizlilik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/terms",
+      "destination": "/kullanim-kosullari/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/terms/",
+      "destination": "/kullanim-kosullari/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container",
+      "destination": "/konteyner/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/",
+      "destination": "/konteyner/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/home",
+      "destination": "/konteyner/ev/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/home/",
+      "destination": "/konteyner/ev/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/office",
+      "destination": "/konteyner/ofis/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/office/",
+      "destination": "/konteyner/ofis/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/security-booth",
+      "destination": "/konteyner/guvenlik-kulubesi/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/security-booth/",
+      "destination": "/konteyner/guvenlik-kulubesi/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/wc-shower",
+      "destination": "/konteyner/wc-dus-kabini/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/container/wc-shower/",
+      "destination": "/konteyner/wc-dus-kabini/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular",
+      "destination": "/moduler/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/",
+      "destination": "/moduler/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/office",
+      "destination": "/moduler/ofis/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/office/",
+      "destination": "/moduler/ofis/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/modular-home",
+      "destination": "/moduler/moduler-ev/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/modular-home/",
+      "destination": "/moduler/moduler-ev/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/zero-waste",
+      "destination": "/moduler/sifir-atik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/zero-waste/",
+      "destination": "/moduler/sifir-atik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/bungalow",
+      "destination": "/moduler/bungalow/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/bungalow/",
+      "destination": "/moduler/bungalow/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/tiny-house",
+      "destination": "/moduler/tiny-house/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/modular/tiny-house/",
+      "destination": "/moduler/tiny-house/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel",
+      "destination": "/prefabrik-celik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/",
+      "destination": "/prefabrik-celik/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/prefab-home-villa",
+      "destination": "/prefabrik-celik/prefabrik-ev-villa/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/prefab-home-villa/",
+      "destination": "/prefabrik-celik/prefabrik-ev-villa/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/construction-special",
+      "destination": "/prefabrik-celik/santiye-ozel-kullanim/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/construction-special/",
+      "destination": "/prefabrik-celik/santiye-ozel-kullanim/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/steel-home-villa",
+      "destination": "/prefabrik-celik/celik-ev-villa/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/steel-home-villa/",
+      "destination": "/prefabrik-celik/celik-ev-villa/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/construction-buildings",
+      "destination": "/prefabrik-celik/prefabrik-santiye-yapilari/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/prefab-steel/construction-buildings/",
+      "destination": "/prefabrik-celik/prefabrik-santiye-yapilari/",
+      "permanent": true
+    }
+  ]
+}

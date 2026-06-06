@@ -59,8 +59,63 @@ function removeRecursive(dir) {
   fs.rmdirSync(dir);
 }
 
+function buildTrRedirects() {
+  const redirects = [
+    { source: "/tr", destination: "/", permanent: true },
+    { source: "/tr/", destination: "/", permanent: true },
+  ];
+
+  const addPair = (from, to) => {
+    const baseFrom = `/tr/${from}`.replace(/\/+/g, "/");
+    const baseTo = `/${to}`.replace(/\/+/g, "/");
+    redirects.push(
+      { source: baseFrom, destination: `${baseTo}/`, permanent: true },
+      { source: `${baseFrom}/`, destination: `${baseTo}/`, permanent: true },
+    );
+  };
+
+  for (const [canonical, turkish] of Object.entries(pathMap)) {
+    addPair(canonical, turkish);
+    const subs = subPathMap[canonical];
+    if (!subs) continue;
+
+    for (const [enSub, trSub] of Object.entries(subs)) {
+      addPair(`${canonical}/${enSub}`, `${turkish}/${trSub}`);
+    }
+
+    const src = path.join(outDir, turkish);
+    if (!fs.existsSync(src)) continue;
+    for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      if (Object.values(subs).includes(entry.name)) continue;
+      addPair(`${canonical}/${entry.name}`, `${turkish}/${entry.name}`);
+    }
+  }
+
+  return redirects;
+}
+
+function writeTrRedirects() {
+  const vercelConfigPath = path.join(__dirname, "..", "vercel.json");
+  const trRedirects = buildTrRedirects();
+  let vercelConfig = {};
+
+  if (fs.existsSync(vercelConfigPath)) {
+    vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, "utf8"));
+  }
+
+  vercelConfig.redirects = [
+    ...trRedirects,
+    ...(vercelConfig.redirects || []).filter((r) => !String(r.source).startsWith("/tr")),
+  ];
+
+  fs.writeFileSync(vercelConfigPath, `${JSON.stringify(vercelConfig, null, 2)}\n`);
+  console.log(`Wrote ${trRedirects.length} /tr -> Turkish URL redirects to vercel.json`);
+}
+
 if (!fs.existsSync(trDir)) {
   console.log("No tr export folder, skipping URL rewrite");
+  writeTrRedirects();
   process.exit(0);
 }
 
@@ -107,3 +162,4 @@ for (const [canonical, turkish] of Object.entries(pathMap)) {
 
 removeRecursive(trDir);
 console.log("Turkish export URLs rewritten to localized paths");
+writeTrRedirects();
