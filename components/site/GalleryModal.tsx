@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useRef } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -23,6 +24,7 @@ export default function GalleryModal({
   onIndexChange,
   onClose,
 }: GalleryModalProps) {
+  const t = useTranslations("gallery");
   const modalRef = useRef<HTMLDivElement>(null);
   const currentImage = images[selectedIdx] || mainImage;
   const canPrev = selectedIdx > 0;
@@ -66,7 +68,7 @@ export default function GalleryModal({
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
-      aria-label={`${title} galeri`}
+      aria-label={t("galleryFor", { title })}
     >
       <div
         ref={modalRef}
@@ -76,7 +78,7 @@ export default function GalleryModal({
         {/* Close button */}
         <button
           onClick={onClose}
-          aria-label="Galeriyi kapat"
+          aria-label={t("close")}
           className="absolute top-3 right-3 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
         >
           <X className="w-5 h-5" />
@@ -86,7 +88,7 @@ export default function GalleryModal({
         <div className="relative w-full h-[60vh]">
           <Image
             src={currentImage}
-            alt={`${title} — görsel ${selectedIdx + 1}/${images.length}`}
+            alt={t("imageOf", { title, n: selectedIdx + 1, total: images.length })}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
             quality={90}
@@ -97,7 +99,7 @@ export default function GalleryModal({
           {canPrev && (
             <button
               onClick={goPrev}
-              aria-label="Önceki görsel"
+              aria-label={t("prev")}
               className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -106,7 +108,7 @@ export default function GalleryModal({
           {canNext && (
             <button
               onClick={goNext}
-              aria-label="Sonraki görsel"
+              aria-label={t("next")}
               className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
@@ -132,14 +134,14 @@ export default function GalleryModal({
               <button
                 key={`${img}-${idx}`}
                 onClick={() => onIndexChange(idx)}
-                aria-label={`Görsel ${idx + 1}`}
+                aria-label={t("imageN", { n: idx + 1 })}
                 className={`relative h-16 cursor-pointer rounded overflow-hidden ${
                   idx === selectedIdx ? "ring-2 ring-accent" : "opacity-70 hover:opacity-100"
                 } transition-all`}
               >
                 <Image
                   src={img}
-                  alt={`${title} küçük görsel ${idx + 1}`}
+                  alt={t("thumbN", { title, n: idx + 1 })}
                   fill
                   sizes="(max-width: 768px) 15vw, 10vw"
                   quality={60}

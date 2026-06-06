@@ -1,43 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Rocket, Eye, BookOpen, CheckCircle } from "lucide-react";
 
 const AboutTabs = () => {
+  const t = useTranslations("aboutTabs");
   const [active, setActive] = useState<"mission" | "vision" | "story">("mission");
 
   const tabs = [
-    {
-      id: "mission",
-      title: "Misyonumuz",
-      icon: Rocket,
-      content: "Modern Yaşamın İhtiyaçlarına Uygun, Kaliteli Ve Estetik Prefabrik Yapı Çözümleri Sunarak Müşterilerimizin Hayallerindeki Yaşam Alanlarını Gerçeğe Dönüştürüyoruz. Teknoloji Ve Zanaati Birleştirerek Dayanıklı, Hızlı Ve Ekonomik Yapılar Üretiyoruz."
-    },
-    {
-      id: "vision", 
-      title: "Vizyonumuz",
-      icon: Eye,
-      content: "Prefabrik Yapı Sektöründe Öncü Ve Güvenilir Bir Marka Olarak; Sürdürülebilir, Enerji Verimli Ve Kullanıcı Odaklı Çözümlerle Geleceğin Yaşam Alanlarını Bugünden İnşa Etmek."
-    },
-    {
-      id: "story",
-      title: "Hikayemiz", 
-      icon: BookOpen,
-      content: "2003 Yılında Atölye Ölçeğinde Başlayan Yolculuğumuz, Bugün Türkiye'nin Dört Bir Yanında Konforlu Yaşam Ve Çalışma Alanları Üreten Bir Yapıya Dönüştü. Her Projede; Hızlı Teslimat, Sağlamlık Ve Estetikten Ödün Vermeden İlerledik. Müşterilerimizin İhtiyaçlarını Gerçekten Dinleyen Bir Ekip Olduk. Bu Yaklaşım, Bizi Daima Daha İyi Çözümler Geliştirmeye Ve Sektörde Güvenilir Bir Marka Olmaya Taşıdı."
-    }
+    { id: "mission" as const, title: t("mission"), icon: Rocket, content: t("missionText") },
+    { id: "vision" as const, title: t("vision"), icon: Eye, content: t("visionText") },
+    { id: "story" as const, title: t("story"), icon: BookOpen, content: t("storyText") },
   ];
 
-  const features = [
-    "20+ Yıllık Deneyim",
-    "1000+ Tamamlanan Proje", 
-    "7/24 Müşteri Desteği",
-    "Kaliteli Malzeme Garantisi"
-  ];
+  const features = [t("feature1"), t("feature2"), t("feature3"), t("feature4")];
 
   return (
     <div className="w-full">
-      {/* Tab Navigation */}
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-8 justify-center" role="tablist" aria-label="Hakkımızda sekmeleri">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-8 justify-center" role="tablist" aria-label={t("tabsAria")}>
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = active === tab.id;
@@ -48,7 +29,7 @@ const AboutTabs = () => {
               aria-selected={isActive}
               aria-controls={`tabpanel-${tab.id}`}
               id={`tab-${tab.id}`}
-              onClick={() => setActive(tab.id as "mission" | "vision" | "story")}
+              onClick={() => setActive(tab.id)}
               className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all duration-300 ${
                 isActive
                   ? "bg-accent text-white shadow-lg transform scale-105"
@@ -62,7 +43,6 @@ const AboutTabs = () => {
         })}
       </div>
 
-      {/* Content Area */}
       <div
         className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100"
         role="tabpanel"
@@ -71,17 +51,16 @@ const AboutTabs = () => {
       >
         <div className="text-center mb-8">
           <h3 className="text-2xl sm:text-3xl font-light text-foreground mb-4">
-            {tabs.find(tab => tab.id === active)?.title}
+            {tabs.find((tab) => tab.id === active)?.title}
           </h3>
           <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-center text-base sm:text-lg mb-8">
-            {tabs.find(tab => tab.id === active)?.content}
+            {tabs.find((tab) => tab.id === active)?.content}
           </p>
 
-          {/* Features Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
             {features.map((feature, index) => (
               <div key={index} className="text-center p-4 bg-secondary/50 rounded-xl">
@@ -97,5 +76,3 @@ const AboutTabs = () => {
 };
 
 export default AboutTabs;
-
-

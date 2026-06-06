@@ -9,8 +9,9 @@ const sharp = require('sharp');
 const publicDir = path.join(__dirname, '..', 'public', 'images');
 const src = path.join(publicDir, 'Logo.png');
 const dest = path.join(publicDir, 'Logo-header.png');
-const width = 210;
-const height = 50;
+// Yüksekliğe göre ölçekle; yatay boşluk trim ile kaldırılır (geniş canvas sorunu giderilir)
+const targetHeight = 64;
+const maxWidth = 130;
 
 async function main() {
   if (!fs.existsSync(src)) {
@@ -18,7 +19,8 @@ async function main() {
     process.exit(1);
   }
   await sharp(src)
-    .resize(width, height, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .trim({ threshold: 10 })
+    .resize(maxWidth, targetHeight, { fit: 'inside', withoutEnlargement: false })
     .png({ compressionLevel: 9 })
     .toFile(dest);
   const stat = fs.statSync(dest);

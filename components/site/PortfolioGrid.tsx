@@ -1,29 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import GalleryModal from "@/components/site/GalleryModal";
 import Image from "next/image";
 import { useState, useMemo } from "react";
-import featuredProjects from '@/data/featured-projects.json';
 import { getOptimizedImagePath } from "@/lib/optimized-image";
+import { getFeaturedProjects } from "@/lib/projects";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import type { Project } from "@/lib/categories";
 
 const PortfolioGrid = () => {
-  type PortfolioItem = {
-    id: string;
-    title: string;
-    description: string;
-    specs: string;
-    location: string;
-    image: string;
-    images: string[];
-    category: string;
-  };
+  const t = useTranslations("portfolio");
+  const tCommon = useTranslations("common");
+  const locale = useLocale() as Locale;
 
-  const items = useMemo(() => featuredProjects as PortfolioItem[], []);
-  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const items = useMemo(() => getFeaturedProjects(locale), [locale]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   return (
@@ -36,12 +32,8 @@ const PortfolioGrid = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-foreground font-extralight mb-6">
-            Projelerimiz
-          </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">
-            Başarıyla Tamamladığımız Projelerimiz
-          </p>
+          <h2 className="text-foreground font-extralight mb-6">{t("title")}</h2>
+          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">{t("subtitle")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -63,12 +55,12 @@ const PortfolioGrid = () => {
                   setSelectedImageIdx(0);
                 }}
               >
-                <div className={`h-56 sm:h-64 relative`}>
-                  <Image 
-                    src={getOptimizedImagePath(project.image)} 
-                    alt={project.title} 
-                    fill 
-                    sizes="(max-width:768px) 100vw, 25vw" 
+                <div className="h-56 sm:h-64 relative">
+                  <Image
+                    src={getOptimizedImagePath(project.image)}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width:768px) 100vw, 25vw"
                     quality={80}
                     loading="lazy"
                     className="object-cover"
@@ -77,19 +69,10 @@ const PortfolioGrid = () => {
                 </div>
 
                 <div className="p-6">
-                  <div className="text-sm text-muted-foreground font-medium mb-2">
-                    {project.location}
-                  </div>
-                  
-                  <h3 className="text-xl font-light text-foreground mb-2">
-                    {project.title}
-                  </h3>
+                  <div className="text-sm text-muted-foreground font-medium mb-2">{project.location}</div>
+                  <h3 className="text-xl font-light text-foreground mb-2">{project.title}</h3>
+                  <div className="text-sm text-accent font-medium mb-4">{project.specs}</div>
 
-                  <div className="text-sm text-accent font-medium mb-4">
-                    {project.specs}
-                  </div>
-
-                  {/* Mobile Button - Always Visible */}
                   <div className="sm:hidden flex justify-center">
                     <Button
                       size="lg"
@@ -100,15 +83,12 @@ const PortfolioGrid = () => {
                         setSelectedImageIdx(0);
                       }}
                     >
-                      Detayları Gör
+                      {tCommon("viewDetails")}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
 
-                  {/* Desktop Overlay Button */}
-                  <motion.div
-                    className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
+                  <motion.div className="hidden sm:flex absolute inset-0 bg-black/60 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Button
                       size="lg"
                       className="bg-accent hover:bg-accent/80 text-white px-6 py-3 text-base font-medium rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
@@ -118,7 +98,7 @@ const PortfolioGrid = () => {
                         setSelectedImageIdx(0);
                       }}
                     >
-                      Detayları Gör
+                      {tCommon("viewDetails")}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </motion.div>
@@ -141,8 +121,8 @@ const PortfolioGrid = () => {
             size="lg"
             className="border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 text-lg font-medium rounded-2xl transition-all duration-300"
           >
-            <Link href="/projeler">
-              Tüm Projeleri Gör
+            <Link href="/projects">
+              {t("viewAll")}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

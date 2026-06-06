@@ -1,48 +1,43 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Home, Package, Truck } from "lucide-react";
 import { getOptimizedImagePath } from "@/lib/optimized-image";
+import { Link } from "@/i18n/navigation";
 
 const CategoryCards = () => {
+  const t = useTranslations("categoryCards");
+  const tCommon = useTranslations("common");
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const categories = [
     {
       id: 1,
-      title: "Prefabrik",
-      description: "Modern Ve Estetik Prefabrik Ev Çözümleri",
+      title: t("prefab"),
+      description: t("prefabDesc"),
       icon: Home,
       image: "/images/projects/1-URUN-GORSELLERI/1-PREFABRIK YAPILAR/DURMUŞ ÜNER 97-M2/a26.jpg",
-      href: "/prefabrik-celik",
-      color: "from-blue-50 to-blue-100",
-      iconColor: "text-blue-600",
+      href: "/prefab-steel" as const,
     },
     {
       id: 2,
-      title: "Modüler",
-      description: "Esnek Ve Özelleştirilebilir Modüler Yapılar",
+      title: t("modular"),
+      description: t("modularDesc"),
       icon: Package,
-      image:
-        "/images/projects/1-URUN-GORSELLERI/6-MODULER/OFIS-SHOWROOM/bilinmeyenm2.JPG",
-      href: "/moduler",
-      color: "from-green-50 to-green-100",
-      iconColor: "text-green-600",
+      image: "/images/projects/1-URUN-GORSELLERI/6-MODULER/OFIS-SHOWROOM/bilinmeyenm2.JPG",
+      href: "/modular" as const,
     },
     {
       id: 3,
-      title: "Konteyner",
-      description: "Pratik Ve Mobil Konteyner Çözümleri",
+      title: t("container"),
+      description: t("containerDesc"),
       icon: Truck,
-      image:
-        "/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/2-OZEL-TASARIM/4X10/1_22 - Foto.jpg",
-      href: "/konteyner",
-      color: "from-orange-50 to-orange-100",
-      iconColor: "text-orange-600",
+      image: "/images/projects/1-URUN-GORSELLERI/3-KONTEYNERLAR/2-OZEL-TASARIM/4X10/1_22 - Foto.jpg",
+      href: "/container" as const,
     },
   ];
 
@@ -56,12 +51,8 @@ const CategoryCards = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-foreground font-extralight mb-6">
-            Uzmanlık Alanlarımız
-          </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">
-            Her İhtiyaca Uygun, Kaliteli Ve Estetik Çözümler Sunuyoruz
-          </p>
+          <h2 className="text-foreground font-extralight mb-6">{t("title")}</h2>
+          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto">{t("subtitle")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -81,20 +72,25 @@ const CategoryCards = () => {
                 onHoverStart={() => setHoveredCard(category.id)}
                 onHoverEnd={() => setHoveredCard(null)}
               >
-                {/* Background Image */}
                 <div className="absolute inset-0">
-                  <Image src={getOptimizedImagePath(category.image)} alt={category.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
+                  <Image
+                    src={getOptimizedImagePath(category.image)}
+                    alt={category.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
 
-                {/* Centered Text with contained backdrop */}
-                <div className={`absolute inset-0 z-10 flex items-end justify-start p-6 transition-opacity ${hoveredCard === category.id ? 'opacity-0' : 'opacity-100'}`}>
+                <div
+                  className={`absolute inset-0 z-10 flex items-end justify-start p-6 transition-opacity ${hoveredCard === category.id ? "opacity-0" : "opacity-100"}`}
+                >
                   <div className="inline-block rounded-2xl px-5 py-3 bg-black/45 backdrop-blur-sm">
                     <h3 className="text-2xl font-light text-white mb-1">{category.title}</h3>
                     <p className="text-white/90 text-sm font-light leading-relaxed">{category.description}</p>
                   </div>
                 </div>
 
-                {/* Hover Overlay */}
                 <motion.div
                   className="absolute inset-0 z-20 bg-black/40 flex items-center justify-center"
                   initial={{ opacity: 0 }}
@@ -108,7 +104,7 @@ const CategoryCards = () => {
                       className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-medium rounded-2xl shadow-xl"
                     >
                       <Link href={category.href}>
-                        Keşfet
+                        {tCommon("explore")}
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>

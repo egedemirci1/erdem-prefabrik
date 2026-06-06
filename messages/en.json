@@ -1,0 +1,338 @@
+{
+  "common": {
+    "brand": "Erdem Prefabrik",
+    "brandFull": "Konya Prefabrik | Erdem Prefabrik",
+    "h1Suffix": "| Konya Prefabrik - Erdem Prefabrik",
+    "home": "Home",
+    "loading": "Loading…",
+    "loadingAlt": "Loading...",
+    "viewDetails": "View Details",
+    "contactUs": "Contact Us",
+    "moreInfo": "Learn More",
+    "explore": "Explore",
+    "tryAgain": "Try Again",
+    "backToHome": "Back to Home",
+    "scrollToTop": "Scroll to top",
+    "projectsShown": "{shown} / {total} Projects Shown",
+    "loadMore": "Load More",
+    "sortDefault": "Sort: Default",
+    "sortAreaDesc": "m²: Largest to smallest",
+    "sortAreaAsc": "m²: Smallest to largest",
+    "sortProjects": "Sort projects",
+    "address": "Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı, Karatay / KONYA",
+    "country": "Turkey"
+  },
+  "nav": {
+    "home": "Home",
+    "container": "Container",
+    "containerHomeOffice": "Home & Office",
+    "containerSecurity": "Security Booth",
+    "containerWc": "WC & Shower Unit",
+    "modular": "Modular",
+    "modularBungalow": "Bungalow & Tiny House",
+    "modularOffice": "Modular Home & Office",
+    "prefabSteel": "Prefab & Steel",
+    "prefabHomeVilla": "Prefab Home & Villa",
+    "constructionSpecial": "Construction & Special Use",
+    "steelHomeVilla": "Steel Home & Villa",
+    "zeroWaste": "Zero Waste",
+    "projects": "Projects",
+    "about": "About Us",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mobileMenu": "Mobile menu"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Elegance in Modular Form",
+        "subtitle": "We offer aesthetic solutions tailored to the needs of modern living."
+      },
+      {
+        "title": "Quality Materials",
+        "subtitle": "We use first-class materials for durable and long-lasting structures."
+      },
+      {
+        "title": "Fast Installation",
+        "subtitle": "We build modular structure systems that save time."
+      }
+    ],
+    "ctaProjects": "All Our Projects",
+    "ctaContact": "Contact Us",
+    "slideLabel": "Slide {n}: {title}"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "social": "Social Media",
+    "konyaPrefabrik": "Konya Prefabrik",
+    "ourProjects": "Our Projects",
+    "prefabHomeKonya": "Prefab Home Konya",
+    "prefabHomeVilla": "Prefab Home & Villa",
+    "modularStructures": "Modular Structures",
+    "containerSolutions": "Container Solutions",
+    "steelHomeVilla": "Steel Home & Villa",
+    "followInstagram": "Follow on Instagram",
+    "newsletterTitle": "Stay Updated on Our Latest Projects",
+    "newsletterDesc": "Leave your phone number to get in touch and hear about our campaigns.",
+    "phonePlaceholder": "Your Phone Number",
+    "phoneAria": "Your phone number for contact",
+    "subscribe": "Subscribe",
+    "submitting": "Submitting...",
+    "phoneRequired": "Please enter your phone number.",
+    "phoneInvalid": "Please enter a valid phone number.",
+    "systemClosed": "System temporarily unavailable.",
+    "subscribeSuccess": "Your number was received successfully.",
+    "connectionError": "A connection error occurred.",
+    "copyright": "© {year} Erdem Prefabrik. All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "categories": {
+    "all": "All",
+    "prefabrik": "Prefabricated Structures",
+    "celik": "Light Steel Structures",
+    "santiye": "Construction & Special Use",
+    "moduler": "Modular"
+  },
+  "home": {
+    "h1": "Konya Prefabrik | Erdem Prefabrik",
+    "h1Aria": "Main heading",
+    "intro": "We offer <strong>Konya prefabrik</strong> and nationwide prefabricated homes, modular structures, containers and steel buildings. Based in Karatay, Konya, Erdem Prefabrik has been serving you for over 20 years.",
+    "serviceAreaAria": "Konya prefabrik service area",
+    "pricingTitle": "Konya Prefab Home Prices and Our Services",
+    "pricingDesc": "<strong>Konya prefab home prices</strong> vary by project specifications and square meters. Among <strong>Konya prefab home companies</strong>, Erdem Prefabrik offers 1+1, 2+1, 3+1 prefab homes, modular structures and container solutions with over 20 years of experience from Karatay. Contact us for a free site visit and quote across <strong>Karatay prefabrik</strong> and greater Konya.",
+    "pricingAria": "Konya prefab home prices and services",
+    "faqTitle": "Frequently Asked Questions About Konya Prefabrik",
+    "faqAria": "Frequently asked questions",
+    "faq": [
+      {
+        "q": "How much do prefab homes cost in Konya?",
+        "a": "Konya prefab home prices vary by square meters, model (1+1, 2+1, 3+1) and materials used. We provide a custom quote after a free site visit. Call us at 0332 351 80 60."
+      },
+      {
+        "q": "What sets Erdem Prefabrik apart among Konya prefab home companies?",
+        "a": "Since 2003, Erdem Prefabrik has been producing prefab homes, modular structures and containers from Karatay, Konya. With over 20 years of experience, 1000+ completed projects and quality materials, we serve Konya and all of Turkey."
+      },
+      {
+        "q": "How long does prefab home installation take?",
+        "a": "Depending on project size, prefab home installation typically takes from a few weeks to a few months. We offer fast installation times with our modular and container solutions."
+      }
+    ]
+  },
+  "categoryCards": {
+    "title": "Our Areas of Expertise",
+    "subtitle": "Quality and Aesthetic Solutions for Every Need",
+    "prefab": "Prefab",
+    "prefabDesc": "Modern and Aesthetic Prefab Home Solutions",
+    "modular": "Modular",
+    "modularDesc": "Flexible and Customizable Modular Structures",
+    "container": "Container",
+    "containerDesc": "Practical and Mobile Container Solutions"
+  },
+  "portfolio": {
+    "title": "Our Projects",
+    "subtitle": "Successfully Completed Projects",
+    "viewAll": "View All Projects"
+  },
+  "aboutSection": {
+    "title": "About Us",
+    "p1": "Since 2003, Erdem Prefabrik has been active in the prefabricated building sector. We produce quality and aesthetic solutions suited to modern living needs.",
+    "p2": "Our experienced team uses the latest technologies to turn our customers' dream living spaces into reality. Quality, reliability and customer satisfaction are our core values.",
+    "completedProjects": "Completed Projects",
+    "yearsExperience": "Years of Experience",
+    "expertTeam": "Expert Team",
+    "citiesServed": "Cities Served",
+    "satisfactionTitle": "Customer Satisfaction",
+    "satisfactionDesc": "We are an industry leader with a 98% customer satisfaction rate.",
+    "imageAlt": "Erdem Prefabrik Construction Site"
+  },
+  "aboutTabs": {
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "story": "Our Story",
+    "missionText": "We turn our customers' dream living spaces into reality by offering quality and aesthetic prefabricated building solutions suited to modern living needs. We combine technology and craftsmanship to produce durable, fast and economical structures.",
+    "visionText": "As a leading and trusted brand in the prefabricated building sector, we build tomorrow's living spaces today with sustainable, energy-efficient and user-focused solutions.",
+    "storyText": "Our journey that began at workshop scale in 2003 has grown into a company producing comfortable living and working spaces across Turkey. In every project, we progressed without compromising on fast delivery, strength and aesthetics. We became a team that truly listens to our customers' needs. This approach has driven us to develop better solutions and become a trusted brand in the industry.",
+    "feature1": "20+ Years of Experience",
+    "feature2": "1000+ Completed Projects",
+    "feature3": "24/7 Customer Support",
+    "feature4": "Quality Material Guarantee",
+    "tabsAria": "About us tabs"
+  },
+  "technical": {
+    "title": "Technical Information",
+    "subtitle": "Technical Features That Ensure Quality and Reliability",
+    "materialTitle": "Material Quality",
+    "materialDesc": "We build long-lasting structures using the highest quality materials",
+    "energyTitle": "Energy Efficiency",
+    "energyDesc": "Structures that save energy with modern insulation technologies",
+    "durabilityTitle": "Durability",
+    "durabilityDesc": "Durable and safe structures against harsh weather conditions",
+    "speedTitle": "Fast Installation",
+    "speedDesc": "Much faster installation than traditional buildings thanks to modular systems",
+    "whyTitle": "Why Erdem Prefabrik?",
+    "whyDesc": "With over 20 years of experience, our expert team and quality materials, we aim for excellence in every project. Customer satisfaction is our most important success criterion."
+  },
+  "gallery": {
+    "galleryFor": "{title} gallery",
+    "close": "Close gallery",
+    "imageOf": "{title} — image {n}/{total}",
+    "prev": "Previous image",
+    "next": "Next image",
+    "imageN": "Image {n}",
+    "thumbN": "{title} thumbnail {n}"
+  },
+  "contactForm": {
+    "nameMin": "Full name must be at least 2 characters",
+    "nameMax": "Full name can be at most 80 characters",
+    "phoneMin": "Phone number must be at least 10 characters",
+    "phoneMax": "Phone number can be at most 20 characters",
+    "phoneInvalid": "Enter a valid phone number (e.g. 0533 123 45 67)",
+    "emailInvalid": "Enter a valid email address",
+    "messageMin": "Message must be at least 10 characters",
+    "messageMax": "Message can be at most 500 characters",
+    "configError": "Contact form setup incomplete (Google Sheets URL not found). Please call us.",
+    "networkError": "Could not reach the server. Please check your internet connection.",
+    "thanks": "Thank you!",
+    "success": "Your message was sent successfully. We will get back to you shortly.",
+    "name": "Full Name",
+    "namePlaceholder": "Your first and last name",
+    "phone": "Phone",
+    "email": "Email",
+    "emailPlaceholder": "Your email address",
+    "message": "Message",
+    "messagePlaceholder": "Share details about your project...",
+    "submitting": "Submitting...",
+    "submit": "Send Message"
+  },
+  "aboutPage": {
+    "title": "Konya Prefabrik — About Erdem Prefabrik",
+    "subtitle": "The address of quality and trust in the prefabricated building sector in Konya and across Turkey",
+    "ctaTitle": "Let's Plan Your Project Together",
+    "ctaDesc": "For questions, visit our contact page right away."
+  },
+  "contactPage": {
+    "title": "Konya Prefabrik — Contact",
+    "subtitle": "Get a free quote for your Konya prefab home, modular structure and container projects. We offer solutions tailored to your needs.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "instagram": "Instagram",
+    "followInstagram": "Follow on Instagram",
+    "facebook": "Facebook",
+    "followFacebook": "Follow on Facebook",
+    "hours": "Business Hours",
+    "weekdays": "Monday - Friday: 08:00 - 18:00",
+    "saturday": "Saturday: 09:00 - 14:00",
+    "openMaps": "Open in Google Maps",
+    "mapTitle": "Erdem Prefabrik Location"
+  },
+  "projectsPage": {
+    "title": "Our Projects | Konya Prefabrik - Erdem Prefabrik",
+    "subtitle": "Examples from Our Successfully Completed Projects",
+    "metaTitle": "Our Projects | Konya Prefabrik - Erdem Prefabrik References",
+    "metaDescription": "Konya prefab projects. Erdem Prefabrik has completed prefab homes, modular structures, containers and steel buildings with 20+ years of experience. 1000+ references across Turkey.",
+    "metaKeywords": "Konya prefab projects, prefab projects, modular projects, container projects, prefab home examples, Erdem Prefabrik references",
+    "metaOgDescription": "Konya prefab projects. 20+ years experience, 1000+ references. Erdem Prefabrik.",
+    "jsonLdName": "Erdem Prefabrik Projects",
+    "jsonLdDescription": "Prefab homes, modular structures, containers and steel buildings we have completed with 20+ years of experience."
+  },
+  "containerPage": {
+    "defaultTitle": "Container Structures",
+    "defaultDesc": "Practical, Mobile and Multi-Purpose Container Solutions",
+    "homeOfficeTitle": "Container Home & Office",
+    "homeOfficeDesc": "Modern and Practical Container Living and Working Spaces",
+    "securityTitle": "Security & Bread Booth",
+    "securityDesc": "Container Booths for Security Personnel and Bread Sales",
+    "wcTitle": "WC & Shower Unit",
+    "wcDesc": "Hygienic Container Toilet and Shower Units",
+    "metaTitle": "Container Structures | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefab container homes, offices, WC & shower units and security booths. Mobile and practical container structures. Fast installation, competitive pricing. Based in Karatay, Konya, serving all of Turkey.",
+    "metaKeywords": "Konya container, container home, container office, container WC, security booth, mobile container, container price, Konya prefab",
+    "metaOgDescription": "Konya container homes, offices, WC & shower units and security booths. Erdem Prefabrik Konya.",
+    "jsonLdName": "Container Structures",
+    "jsonLdDescription": "Container homes, offices, WC & shower units and security booth solutions. Mobile and practical container structures.",
+    "jsonLdServiceTypes": ["Container Home", "Container Office", "Security Booth", "WC & Shower Unit"]
+  },
+  "modularPage": {
+    "defaultTitle": "Modular Structures",
+    "defaultDesc": "Flexible, Customizable Modular Solutions",
+    "bungalowTitle": "Bungalow & Tiny House",
+    "bungalowDesc": "Two-Story Bungalow and Compact Tiny House Solutions",
+    "officeTitle": "Modular Home & Office",
+    "officeDesc": "Modern and Comfortable Modular Home and Office Designs",
+    "zeroWasteTitle": "Zero Waste",
+    "zeroWasteDesc": "Eco-Friendly Zero Waste Modular Structures",
+    "metaTitle": "Modular Structures | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefab modular homes, bungalows, tiny houses, offices and zero waste centers. Flexible modular structures. Fast installation, quality materials. Based in Karatay, Konya, serving all of Turkey.",
+    "metaKeywords": "Konya modular home, modular home, bungalow, tiny house, modular office, zero waste center, Konya prefab, modular price",
+    "metaOgDescription": "Konya modular homes, bungalows, tiny houses and offices. Erdem Prefabrik Konya.",
+    "jsonLdName": "Modular Structures",
+    "jsonLdDescription": "Modular homes, bungalows, tiny houses, offices and zero waste center solutions.",
+    "jsonLdServiceTypes": ["Modular Home", "Bungalow", "Tiny House", "Modular Office", "Zero Waste Center"]
+  },
+  "prefabSteelPage": {
+    "defaultTitle": "Prefab Steel Structures",
+    "defaultDesc": "Modern, Durable and Aesthetic Solutions",
+    "prefabHomeTitle": "Prefab Home & Villa",
+    "prefabHomeDesc": "Fast-Installation Prefab Home Solutions",
+    "constructionTitle": "Construction & Special Use",
+    "constructionDesc": "Construction Site Buildings and Special Use Areas",
+    "steelHomeTitle": "Steel Home & Villa",
+    "steelHomeDesc": "Luxury and Comfortable Steel Home Solutions",
+    "metaTitle": "Prefab & Steel Structures | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefab homes, villas, offices and construction site buildings. Durable steel construction structures. Fast installation, quality materials. Based in Karatay, Konya, serving all of Turkey.",
+    "metaKeywords": "Konya prefab home, prefab home, prefab villa, steel home, prefab office, construction building, Karatay prefab, prefab home prices",
+    "metaOgDescription": "Konya prefab homes, villas, offices and construction buildings. Erdem Prefabrik Konya.",
+    "jsonLdName": "Prefab & Steel Structures",
+    "jsonLdDescription": "Prefab homes, villas, offices and construction site buildings. Durable steel construction structures.",
+    "jsonLdServiceTypes": ["Prefab Home", "Prefab Villa", "Steel Home", "Steel Villa", "Construction Buildings"]
+  },
+  "errorPage": {
+    "title": "An Error Occurred",
+    "desc": "An unexpected error occurred. Please try again or return to the home page."
+  },
+  "notFoundPage": {
+    "title": "Page Not Found",
+    "desc": "The page you are looking for may have been moved, deleted, or never existed."
+  },
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: 2025-01-01",
+    "intro": "This Privacy Policy explains how your personal data is processed when you visit the website (\"Site\") operated by Erdem Prefabrik (\"Company\") and use contact forms. We value the security of your personal data and act in compliance with applicable legislation (KVKK and related regulations).",
+    "sections": [
+      { "title": "1. Data Collected", "body": "Through the Site, contact data such as name, phone, email and message content may be processed; IP address, browser information and usage data may be processed via cookies." },
+      { "title": "2. Processing Purposes", "body": "To respond to your requests and questions, provide quotes; improve our services and Site experience; fulfill our legal obligations." },
+      { "title": "3. Legal Basis", "body": "Data may be processed within the scope of establishing/performing a contract, our legitimate interests or your explicit consent (KVKK Art. 5). Visit data is collected according to your cookie preferences." },
+      { "title": "4. Transfer", "body": "When necessary, data may be shared with our suppliers and hosting/infrastructure providers, and with authorized institutions as required by law. Cross-border transfers comply with KVKK Art. 9." },
+      { "title": "5. Retention Periods", "body": "Contact records are kept for a reasonable period or the statutory limitation period; they are securely deleted/anonymized when the purpose ceases." },
+      { "title": "6. Your Rights", "body": "Under KVKK Art. 11, you have the right to access, request correction/deletion, restrict processing and object. You may submit requests via the contact details below." },
+      { "title": "7. Cookies", "body": "The Site may use essential cookies and performance/analytics cookies. You can manage cookie preferences in your browser settings. Disabling cookies may limit some functionality." },
+      { "title": "8. Contact", "body": "Erdem Prefabrik – Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı, Karatay / KONYA • info@erdemprefabrikev.com • +90 332 351 80 60" }
+    ],
+    "footer": "This policy may be updated when necessary. The current version is effective from the date published on the Site."
+  },
+  "termsPage": {
+    "title": "Terms of Use",
+    "updated": "Last updated: 2025-01-01",
+    "sections": [
+      { "title": "1. Acceptance", "body": "By accessing and using this Site, you accept the conditions below and all applicable legislation. If you do not accept the terms, do not use the Site." },
+      { "title": "2. Scope of Service", "body": "The Site is a promotional, reference and contact channel for Erdem Prefabrik products and services. Site content is for informational purposes and may be updated without prior notice." },
+      { "title": "3. Intellectual Property", "body": "All rights to Site content including text, images, logos and designs belong to the Company or its licensors. It may not be copied, reproduced or distributed without permission even with attribution." },
+      { "title": "4. Usage Rules", "body": "Do not perform actions that harm the Site or compromise security; do not provide false/incomplete information or infringe third-party rights; do not send unlawful content or engage in spam." },
+      { "title": "5. Disclaimer", "body": "Reasonable care is taken regarding accuracy and currency of Site content, but error-free/completeness is not guaranteed. The Company cannot be held liable for damages arising from use of the Site and linked services." },
+      { "title": "6. Third-Party Links", "body": "Third-party links on the Site are for informational purposes. The Company is not responsible for their content or security." },
+      { "title": "7. Changes", "body": "The Company reserves the right to change these Terms of Use at any time. The current text is published on the Site and takes effect upon publication." },
+      { "title": "8. Governing Law and Jurisdiction", "body": "These terms are subject to the laws of the Republic of Turkey. Konya courts and enforcement offices have jurisdiction over disputes." },
+      { "title": "9. Contact", "body": "Erdem Prefabrik • info@erdemprefabrikev.com • +90 332 351 80 60" }
+    ]
+  },
+  "metadata": {
+    "titleTemplate": "%s | Erdem Prefabrik Konya",
+    "defaultTitle": "Konya Prefabrik | Erdem Prefabrik - Prefab Home, Modular Structure, Container",
+    "defaultDescription": "Konya prefab home, modular structure and container solutions. For over 20 years, Erdem Prefabrik has been based in Karatay, Konya, offering prefab homes, villas and construction buildings across Turkey. Free site visit and quote.",
+    "ogImageAlt": "Erdem Prefabrik - Konya Prefabrik"
+  }
+}

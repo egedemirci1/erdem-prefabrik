@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Static export only for production build; dev needs middleware for locale routing.
+  ...(process.env.NODE_ENV === "production" ? { output: "export" as const } : {}),
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -11,4 +15,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

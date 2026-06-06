@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = path.join(__dirname, '..', 'data');
+const dataDir = path.join(__dirname, '..', 'data', 'tr');
 const projectsPath = path.join(dataDir, 'projects.json');
 const all = JSON.parse(fs.readFileSync(projectsPath, 'utf8'));
 

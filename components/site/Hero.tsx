@@ -1,39 +1,35 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Mail } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { getOptimizedImagePath } from "@/lib/optimized-image";
+import { Link } from "@/i18n/navigation";
 
-const slides = [
-  {
-    title: "Zerafetin Modüler Hali",
-    subtitle: "Modern Yaşamın İhtiyaçlarına Uygun Ve Estetik Çözümler Sunuyoruz.",
-    image: "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow1/bilinmeyenm2.JPG",
-  },
-  {
-    title: "Kaliteli Malzeme",
-    subtitle: "Dayanıklı Ve Uzun Ömürlü Yapılar İçin 1. Kalite Malzeme Kullanıyoruz.",
-    image: "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/casa erdem/2_Photo - 10.jpg",
-  },
-  {
-    title: "Hızlı Kurulum",
-    subtitle: "Zaman Tasarrufu Sağlayan Modüler Yapı Sistemleri Oluşturuyoruz.",
-    image: "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow5/2_Photo - 1.jpg",
-  },
+const slideImages = [
+  "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow1/bilinmeyenm2.JPG",
+  "/images/projects/1-URUN-GORSELLERI/2-HAFIF-CELIK YAPILAR/casa erdem/2_Photo - 10.jpg",
+  "/images/projects/1-URUN-GORSELLERI/6-MODULER/bungalow5/2_Photo - 1.jpg",
 ];
 
 const Hero = () => {
+  const t = useTranslations("hero");
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [0, 1, 2].map((i) => ({
+    title: t(`slides.${i}.title`),
+    subtitle: t(`slides.${i}.subtitle`),
+    image: slideImages[i],
+  }));
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative h-screen pt-20 w-full overflow-hidden">
@@ -85,8 +81,8 @@ const Hero = () => {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg font-medium rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                <Link href="/projeler">
-                  Tüm Projelerimiz
+                <Link href="/projects">
+                  {t("ctaProjects")}
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -95,9 +91,9 @@ const Hero = () => {
                 size="lg"
                 className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-medium rounded-2xl shadow-md w-full sm:w-auto"
               >
-                <Link href="/iletisim">
+                <Link href="/contact">
                   <Mail className="mr-2 h-5 w-5" />
-                  İletişime Geç
+                  {t("ctaContact")}
                 </Link>
               </Button>
             </div>
@@ -107,11 +103,11 @@ const Hero = () => {
 
       <div className="absolute bottom-32 sm:bottom-20 left-1/2 -translate-x-1/2 z-20">
         <div className="flex space-x-3">
-          {slides.map((_, index) => (
+          {slides.map((slide, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              aria-label={`Slayt ${index + 1}: ${slides[index].title}`}
+              aria-label={t("slideLabel", { n: index + 1, title: slide.title })}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"
               }`}

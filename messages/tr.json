@@ -1,0 +1,338 @@
+{
+  "common": {
+    "brand": "Erdem Prefabrik",
+    "brandFull": "Konya Prefabrik | Erdem Prefabrik",
+    "h1Suffix": "| Konya Prefabrik - Erdem Prefabrik",
+    "home": "Ana Sayfa",
+    "loading": "Yükleniyor…",
+    "loadingAlt": "Yükleniyor...",
+    "viewDetails": "Detayları Gör",
+    "contactUs": "İletişime Geç",
+    "moreInfo": "Daha Fazla Bilgi",
+    "explore": "Keşfet",
+    "tryAgain": "Tekrar Dene",
+    "backToHome": "Ana Sayfaya Dön",
+    "scrollToTop": "Sayfanın başına dön",
+    "projectsShown": "{shown} / {total} Proje Gösteriliyor",
+    "loadMore": "Daha Fazla Yükle",
+    "sortDefault": "Sıralama: Varsayılan",
+    "sortAreaDesc": "m²: Büyükten küçüğe",
+    "sortAreaAsc": "m²: Küçükten büyüğe",
+    "sortProjects": "Projeleri sırala",
+    "address": "Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı, Karatay / KONYA",
+    "country": "Türkiye"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "container": "Konteyner",
+    "containerHomeOffice": "Ev & Ofis",
+    "containerSecurity": "Güvenlik Kulübesi",
+    "containerWc": "WC & Duş Kabini",
+    "modular": "Modüler",
+    "modularBungalow": "Bungalow & Tiny House",
+    "modularOffice": "Modüler Ev & Ofis",
+    "prefabSteel": "Prefabrik & Çelik",
+    "prefabHomeVilla": "Prefabrik Ev & Villa",
+    "constructionSpecial": "Şantiye & Özel Kullanım",
+    "steelHomeVilla": "Çelik Ev & Villa",
+    "zeroWaste": "Sıfır Atık",
+    "projects": "Projeler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "mobileMenu": "Mobil menü"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Zerafetin Modüler Hali",
+        "subtitle": "Modern Yaşamın İhtiyaçlarına Uygun Ve Estetik Çözümler Sunuyoruz."
+      },
+      {
+        "title": "Kaliteli Malzeme",
+        "subtitle": "Dayanıklı Ve Uzun Ömürlü Yapılar İçin 1. Kalite Malzeme Kullanıyoruz."
+      },
+      {
+        "title": "Hızlı Kurulum",
+        "subtitle": "Zaman Tasarrufu Sağlayan Modüler Yapı Sistemleri Oluşturuyoruz."
+      }
+    ],
+    "ctaProjects": "Tüm Projelerimiz",
+    "ctaContact": "İletişime Geç",
+    "slideLabel": "Slayt {n}: {title}"
+  },
+  "footer": {
+    "quickLinks": "Başlıklarımız",
+    "services": "Hizmetlerimiz",
+    "social": "Sosyal Medya",
+    "konyaPrefabrik": "Konya Prefabrik",
+    "ourProjects": "Projelerimiz",
+    "prefabHomeKonya": "Prefabrik Ev Konya",
+    "prefabHomeVilla": "Prefabrik Ev & Villa",
+    "modularStructures": "Modüler Yapılar",
+    "containerSolutions": "Konteyner Çözümleri",
+    "steelHomeVilla": "Çelik Ev & Villa",
+    "followInstagram": "Instagram'da Takip Et",
+    "newsletterTitle": "Güncel Projelerimizden Haberdar Olun",
+    "newsletterDesc": "Bizimle iletişime geçmek ve kampanyalardan haberdar olmak için telefon numaranızı bırakın.",
+    "phonePlaceholder": "Telefon Numaranız",
+    "phoneAria": "İletişim için telefon numaranız",
+    "subscribe": "Abone Ol",
+    "submitting": "Gönderiliyor...",
+    "phoneRequired": "Lütfen telefon numaranızı girin.",
+    "phoneInvalid": "Lütfen geçerli bir telefon numarası girin.",
+    "systemClosed": "Sistem geçici olarak kapalı.",
+    "subscribeSuccess": "Numaranız başarıyla alındı.",
+    "connectionError": "Bağlantı hatası yaşandı.",
+    "copyright": "© {year} Erdem Prefabrik. Tüm Hakları Saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  },
+  "categories": {
+    "all": "Tümü",
+    "prefabrik": "Prefabrik Yapılar",
+    "celik": "Hafif Çelik Yapılar",
+    "santiye": "Şantiye & Özel Kullanım",
+    "moduler": "Modüler"
+  },
+  "home": {
+    "h1": "Konya Prefabrik | Erdem Prefabrik",
+    "h1Aria": "Ana başlık",
+    "intro": "<strong>Konya prefabrik</strong> ve Türkiye genelinde prefabrik ev, modüler yapı, konteyner ve çelik yapı çözümleri sunuyoruz. Konya Karatay merkezli Erdem Prefabrik olarak 20+ yıldır hizmetinizdeyiz.",
+    "serviceAreaAria": "Konya prefabrik hizmet bölgesi",
+    "pricingTitle": "Konya Prefabrik Ev Fiyatları ve Hizmetlerimiz",
+    "pricingDesc": "<strong>Konya prefabrik ev fiyatları</strong> proje özelliğine ve metrekareye göre değişir. <strong>Konya prefabrik ev yapan firmalar</strong> arasında Erdem Prefabrik olarak Karatay merkezli, 20+ yıllık deneyimle 1+1, 2+1, 3+1 prefabrik ev, modüler yapı ve konteyner çözümleri sunuyoruz. <strong>Karatay prefabrik</strong> ve Konya genelinde ücretsiz keşif ve fiyat teklifi için iletişime geçebilirsiniz.",
+    "pricingAria": "Konya prefabrik ev fiyatları ve hizmetler",
+    "faqTitle": "Konya Prefabrik Hakkında Sıkça Sorulan Sorular",
+    "faqAria": "Sıkça sorulan sorular",
+    "faq": [
+      {
+        "q": "Konya'da prefabrik ev fiyatları ne kadar?",
+        "a": "Konya prefabrik ev fiyatları metrekare, model (1+1, 2+1, 3+1) ve kullanılan malzemeye göre değişir. Ücretsiz keşif sonrası size özel fiyat teklifi sunuyoruz. 0332 351 80 60 numarasından bize ulaşabilirsiniz."
+      },
+      {
+        "q": "Konya prefabrik ev yapan firmalar arasında Erdem Prefabrik'in farkı nedir?",
+        "a": "Erdem Prefabrik 2003'ten beri Konya Karatay merkezli olarak prefabrik ev, modüler yapı ve konteyner üretiyor. 20+ yıllık deneyim, 1000+ tamamlanan proje ve kaliteli malzeme kullanımıyla Konya ve Türkiye genelinde hizmet veriyoruz."
+      },
+      {
+        "q": "Prefabrik ev kurulum süresi ne kadar?",
+        "a": "Proje büyüklüğüne göre prefabrik ev kurulumu genellikle birkaç hafta ile birkaç ay arasında tamamlanır. Modüler ve konteyner çözümlerimizde hızlı kurulum süreleri sunuyoruz."
+      }
+    ]
+  },
+  "categoryCards": {
+    "title": "Uzmanlık Alanlarımız",
+    "subtitle": "Her İhtiyaca Uygun, Kaliteli Ve Estetik Çözümler Sunuyoruz",
+    "prefab": "Prefabrik",
+    "prefabDesc": "Modern Ve Estetik Prefabrik Ev Çözümleri",
+    "modular": "Modüler",
+    "modularDesc": "Esnek Ve Özelleştirilebilir Modüler Yapılar",
+    "container": "Konteyner",
+    "containerDesc": "Pratik Ve Mobil Konteyner Çözümleri"
+  },
+  "portfolio": {
+    "title": "Projelerimiz",
+    "subtitle": "Başarıyla Tamamladığımız Projelerimiz",
+    "viewAll": "Tüm Projeleri Gör"
+  },
+  "aboutSection": {
+    "title": "Hakkımızda",
+    "p1": "Erdem Prefabrik olarak, 2003 yılından bu yana prefabrik yapı sektöründe faaliyet gösteriyoruz. Modern yaşamın ihtiyaçlarına uygun, kaliteli ve estetik çözümler üretiyoruz.",
+    "p2": "Deneyimli ekibimiz, en son teknolojileri kullanarak müşterilerimizin hayallerindeki yaşam alanlarını gerçeğe dönüştürüyor. Kalite, güvenilirlik ve müşteri memnuniyeti bizim için en önemli değerlerdir.",
+    "completedProjects": "Tamamlanan Proje",
+    "yearsExperience": "Yıllık Deneyim",
+    "expertTeam": "Uzman Ekip",
+    "citiesServed": "Şehirde Hizmet",
+    "satisfactionTitle": "Müşteri Memnuniyeti",
+    "satisfactionDesc": "%98 müşteri memnuniyet oranı ile sektörde öncü konumdayız.",
+    "imageAlt": "Erdem Prefabrik Yapı Alanı"
+  },
+  "aboutTabs": {
+    "mission": "Misyonumuz",
+    "vision": "Vizyonumuz",
+    "story": "Hikayemiz",
+    "missionText": "Modern Yaşamın İhtiyaçlarına Uygun, Kaliteli Ve Estetik Prefabrik Yapı Çözümleri Sunarak Müşterilerimizin Hayallerindeki Yaşam Alanlarını Gerçeğe Dönüştürüyoruz. Teknoloji Ve Zanaati Birleştirerek Dayanıklı, Hızlı Ve Ekonomik Yapılar Üretiyoruz.",
+    "visionText": "Prefabrik Yapı Sektöründe Öncü Ve Güvenilir Bir Marka Olarak; Sürdürülebilir, Enerji Verimli Ve Kullanıcı Odaklı Çözümlerle Geleceğin Yaşam Alanlarını Bugünden İnşa Etmek.",
+    "storyText": "2003 Yılında Atölye Ölçeğinde Başlayan Yolculuğumuz, Bugün Türkiye'nin Dört Bir Yanında Konforlu Yaşam Ve Çalışma Alanları Üreten Bir Yapıya Dönüştü. Her Projede; Hızlı Teslimat, Sağlamlık Ve Estetikten Ödün Vermeden İlerledik. Müşterilerimizin İhtiyaçlarını Gerçekten Dinleyen Bir Ekip Olduk. Bu Yaklaşım, Bizi Daima Daha İyi Çözümler Geliştirmeye Ve Sektörde Güvenilir Bir Marka Olmaya Taşıdı.",
+    "feature1": "20+ Yıllık Deneyim",
+    "feature2": "1000+ Tamamlanan Proje",
+    "feature3": "7/24 Müşteri Desteği",
+    "feature4": "Kaliteli Malzeme Garantisi",
+    "tabsAria": "Hakkımızda sekmeleri"
+  },
+  "technical": {
+    "title": "Teknik Bilgiler",
+    "subtitle": "Yapılarımızın Kalitesini Ve Güvenilirliğini Sağlayan Teknik Özellikler",
+    "materialTitle": "Malzeme Kalitesi",
+    "materialDesc": "En Yüksek Kalitede Malzemeler Kullanarak Uzun Ömürlü Yapılar İnşa Ediyoruz",
+    "energyTitle": "Enerji Verimliliği",
+    "energyDesc": "Modern Yalıtım Teknolojileri İle Enerji Tasarrufu Sağlayan Yapılar",
+    "durabilityTitle": "Dayanıklılık",
+    "durabilityDesc": "Zorlu Hava Koşullarına Karşı Dayanıklı Ve Güvenli Yapılar",
+    "speedTitle": "Hızlı Kurulum",
+    "speedDesc": "Modüler Sistem Sayesinde Geleneksel Yapılara Göre Çok Daha Hızlı Kurulum",
+    "whyTitle": "Neden Erdem Prefabrik?",
+    "whyDesc": "20 Yılı Aşkın Deneyimimiz, Uzman Ekibimiz Ve Kaliteli Malzemelerimiz İle Her Projede Mükemmellik Hedefliyoruz. Müşteri Memnuniyeti Bizim İçin En Önemli Başarı Kriteridir."
+  },
+  "gallery": {
+    "galleryFor": "{title} galeri",
+    "close": "Galeriyi kapat",
+    "imageOf": "{title} — görsel {n}/{total}",
+    "prev": "Önceki görsel",
+    "next": "Sonraki görsel",
+    "imageN": "Görsel {n}",
+    "thumbN": "{title} küçük görsel {n}"
+  },
+  "contactForm": {
+    "nameMin": "Ad Soyad en az 2 karakter olmalıdır",
+    "nameMax": "Ad Soyad en fazla 80 karakter olabilir",
+    "phoneMin": "Telefon numarası en az 10 karakter olmalıdır",
+    "phoneMax": "Telefon numarası en fazla 20 karakter olabilir",
+    "phoneInvalid": "Geçerli bir telefon numarası girin (örn: 0533 123 45 67)",
+    "emailInvalid": "Geçerli bir e-posta adresi girin",
+    "messageMin": "Mesaj en az 10 karakter olmalıdır",
+    "messageMax": "Mesaj en fazla 500 karakter olabilir",
+    "configError": "İletişim formu kurulumu eksik (Google Sheets URL bulunamadı). Lütfen telefonla ulaşın.",
+    "networkError": "Sunucuya ulaşılamadı. Lütfen internet bağlantınızı kontrol edin.",
+    "thanks": "Teşekkürler!",
+    "success": "Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.",
+    "name": "Ad Soyad",
+    "namePlaceholder": "Adınız ve soyadınız",
+    "phone": "Telefon",
+    "email": "E‑posta",
+    "emailPlaceholder": "E‑posta adresiniz",
+    "message": "Mesaj",
+    "messagePlaceholder": "Projeniz hakkında detayları paylaşın...",
+    "submitting": "Gönderiliyor...",
+    "submit": "Mesaj Gönder"
+  },
+  "aboutPage": {
+    "title": "Konya Prefabrik — Erdem Prefabrik Hakkımızda",
+    "subtitle": "Konya ve Türkiye genelinde prefabrik yapı sektöründe kalite ve güvenin adresi",
+    "ctaTitle": "Projenizi Birlikte Planlayalım",
+    "ctaDesc": "Sorularınız İçin Hemen İletişim Sayfasına Geçebilirsiniz."
+  },
+  "contactPage": {
+    "title": "Konya Prefabrik — İletişim",
+    "subtitle": "Konya prefabrik ev, modüler yapı ve konteyner projeleriniz için ücretsiz fiyat teklifi alın. İhtiyacınıza uygun çözümler sunuyoruz.",
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "E‑posta",
+    "instagram": "Instagram",
+    "followInstagram": "Instagram'da Takip Et",
+    "facebook": "Facebook",
+    "followFacebook": "Facebook'ta Takip Et",
+    "hours": "Çalışma Saatleri",
+    "weekdays": "Pazartesi - Cuma: 08:00 - 18:00",
+    "saturday": "Cumartesi: 09:00 - 14:00",
+    "openMaps": "Google Haritalar'da Aç",
+    "mapTitle": "Erdem Prefabrik Konum"
+  },
+  "projectsPage": {
+    "title": "Projelerimiz | Konya Prefabrik - Erdem Prefabrik",
+    "subtitle": "Tamamladığımız Başarılı Projelerden Örnekler",
+    "metaTitle": "Projelerimiz | Konya Prefabrik - Erdem Prefabrik Referanslar",
+    "metaDescription": "Konya prefabrik projeleri. Erdem Prefabrik 20+ yıllık deneyimle tamamladığı prefabrik ev, modüler yapı, konteyner ve çelik yapı projeleri. 1000+ referans. Konya merkezli, Türkiye geneli.",
+    "metaKeywords": "Konya prefabrik projeleri, prefabrik projeler, modüler projeler, konteyner projeler, prefabrik ev örnekleri, Erdem Prefabrik referanslar",
+    "metaOgDescription": "Konya prefabrik projeleri. 20+ yıl deneyim, 1000+ referans. Erdem Prefabrik.",
+    "jsonLdName": "Erdem Prefabrik Projeleri",
+    "jsonLdDescription": "20+ yıllık deneyimimizle tamamladığımız prefabrik ev, modüler yapı, konteyner ve çelik yapı projelerimiz."
+  },
+  "containerPage": {
+    "defaultTitle": "Konteyner Yapılar",
+    "defaultDesc": "Pratik, Mobil Ve Çok Amaçlı Konteyner Çözümleri",
+    "homeOfficeTitle": "Konteyner Ev & Ofis",
+    "homeOfficeDesc": "Modern Ve Pratik Konteyner Yaşam Ve Çalışma Alanları",
+    "securityTitle": "Güvenlik & Ekmek Kabini",
+    "securityDesc": "Güvenlik Personeli Ve Ekmek Satışı İçin Konteyner Kulübeler",
+    "wcTitle": "WC & Duş Kabini",
+    "wcDesc": "Hijyenik Konteyner Tuvalet Ve Duş Üniteleri",
+    "metaTitle": "Konteyner Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefabrik konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi. Mobil ve pratik konteyner yapılar. Hızlı kurulum, uygun fiyat. Konya Karatay merkezli, Türkiye geneli hizmet.",
+    "metaKeywords": "Konya konteyner, konteyner ev, konteyner ofis, konteyner WC, güvenlik kulübesi, mobil konteyner, konteyner fiyat, Konya prefabrik",
+    "metaOgDescription": "Konya konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi. Erdem Prefabrik Konya.",
+    "jsonLdName": "Konteyner Yapılar",
+    "jsonLdDescription": "Konteyner ev, ofis, WC & duş kabini, güvenlik kulübesi çözümleri. Mobil ve pratik konteyner yapılar.",
+    "jsonLdServiceTypes": ["Konteyner Ev", "Konteyner Ofis", "Güvenlik Kulübesi", "WC & Duş Kabini"]
+  },
+  "modularPage": {
+    "defaultTitle": "Modüler Yapılar",
+    "defaultDesc": "Esnek, Özelleştirilebilir Modüler Çözümler",
+    "bungalowTitle": "Bungalow & Tiny House",
+    "bungalowDesc": "2 Katlı Bungalow Ve Kompakt Tiny House Çözümleri",
+    "officeTitle": "Modüler Ev & Ofis",
+    "officeDesc": "Modern Ve Konforlu Modüler Ev Ve Ofis Tasarımları",
+    "zeroWasteTitle": "Sıfır Atık",
+    "zeroWasteDesc": "Çevre Dostu Sıfır Atık Modüler Yapıları",
+    "metaTitle": "Modüler Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefabrik modüler ev, bungalow, tiny house, ofis ve sıfır atık merkezi. Esnek modüler yapılar. Hızlı kurulum, kaliteli malzeme. Konya Karatay merkezli, Türkiye geneli hizmet.",
+    "metaKeywords": "Konya modüler ev, modüler ev, bungalow, tiny house, modüler ofis, sıfır atık merkezi, Konya prefabrik, modüler fiyat",
+    "metaOgDescription": "Konya modüler ev, bungalow, tiny house, ofis. Erdem Prefabrik Konya.",
+    "jsonLdName": "Modüler Yapılar",
+    "jsonLdDescription": "Modüler ev, bungalow, tiny house, ofis ve sıfır atık merkezi çözümleri.",
+    "jsonLdServiceTypes": ["Modüler Ev", "Bungalow", "Tiny House", "Modüler Ofis", "Sıfır Atık Merkezi"]
+  },
+  "prefabSteelPage": {
+    "defaultTitle": "Prefabrik Çelik Yapılar",
+    "defaultDesc": "Modern, Dayanıklı Ve Estetik Çözümler",
+    "prefabHomeTitle": "Prefabrik Ev & Villa",
+    "prefabHomeDesc": "Hızlı Kurulum Prefabrik Ev Çözümleri",
+    "constructionTitle": "Şantiye & Özel Kullanım",
+    "constructionDesc": "Şantiye Binaları Ve Özel Kullanım Alanları",
+    "steelHomeTitle": "Çelik Ev & Villa",
+    "steelHomeDesc": "Lüks Ve Konforlu Çelik Ev Çözümleri",
+    "metaTitle": "Prefabrik & Çelik Yapılar | Konya Prefabrik - Erdem Prefabrik",
+    "metaDescription": "Konya prefabrik ev, villa, ofis ve şantiye yapıları. Çelik konstrüksiyonlu dayanıklı yapılar. Hızlı kurulum, kaliteli malzeme. Konya Karatay merkezli, Türkiye geneli hizmet.",
+    "metaKeywords": "Konya prefabrik ev, prefabrik ev, prefabrik villa, çelik ev, prefabrik ofis, şantiye yapısı, Karatay prefabrik, prefabrik ev fiyatları",
+    "metaOgDescription": "Konya prefabrik ev, villa, ofis ve şantiye. Erdem Prefabrik Konya.",
+    "jsonLdName": "Prefabrik & Çelik Yapılar",
+    "jsonLdDescription": "Prefabrik ev, villa, ofis ve şantiye yapıları. Çelik konstrüksiyonlu dayanıklı yapılar.",
+    "jsonLdServiceTypes": ["Prefabrik Ev", "Prefabrik Villa", "Çelik Ev", "Çelik Villa", "Şantiye Yapıları"]
+  },
+  "errorPage": {
+    "title": "Bir Hata Oluştu",
+    "desc": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin veya ana sayfaya dönün."
+  },
+  "notFoundPage": {
+    "title": "Sayfa Bulunamadı",
+    "desc": "Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir."
+  },
+  "privacyPage": {
+    "title": "Gizlilik Politikası",
+    "updated": "Son güncelleme: 2025-01-01",
+    "intro": "Bu Gizlilik Politikası, Erdem Prefabrik (\"Şirket\") tarafından işletilen web sitesini (\"Site\") ziyaret ettiğinizde ve iletişim formlarını kullandığınızda kişisel verilerinizin nasıl işlendiğini açıklar. Kişisel verilerinizin güvenliğine önem veriyor, mevzuata (KVKK ve ilgili ikincil düzenlemeler) uygun hareket ediyoruz.",
+    "sections": [
+      { "title": "1. Toplanan Veriler", "body": "Site üzerinden; ad-soyad, telefon, e‑posta ve mesaj içeriği gibi iletişim verileri; çerezler aracılığıyla IP adresi, tarayıcı bilgisi ve kullanım verileri işlenebilir." },
+      { "title": "2. İşleme Amaçları", "body": "Talep ve sorularınıza cevap verebilmek, tekliflendirme yapmak; Hizmetlerimizi geliştirmek ve Site deneyimini iyileştirmek; Mevzuattan kaynaklanan yükümlülüklerimizi yerine getirmek." },
+      { "title": "3. Hukuki Sebepler", "body": "Veriler; bir sözleşmenin kurulması/ifası, meşru menfaatlerimiz veya açık rızanız kapsamında işlenebilir (KVKK md. 5). Ziyaret verileri, çerez tercihleriniz doğrultusunda toplanır." },
+      { "title": "4. Aktarım", "body": "Zorunlu olması hâlinde tedarikçilerimiz ve barındırma/altyapı sağlayıcılarıyla, mevzuat gereği yetkili kurumlarla paylaşılabilir. Yurt dışına aktarım söz konusu olduğunda KVKK md. 9 hükümlerine uyulur." },
+      { "title": "5. Saklama Süreleri", "body": "İletişim kayıtları makul bir süre boyunca veya yasal zamanaşımı süresi boyunca saklanır; amaç ortadan kalktığında güvenli şekilde silinir/anonomize edilir." },
+      { "title": "6. Haklarınız", "body": "KVKK md. 11 uyarınca veri sahibi olarak; kişisel verilerinize erişme, düzeltilmesini/silinmesini isteme, işleme faaliyetini kısıtlama ve itiraz etme haklarına sahipsiniz. Taleplerinizi aşağıdaki iletişim bilgilerinden iletebilirsiniz." },
+      { "title": "7. Çerezler", "body": "Site, zorunlu çerezler ve performans/analitik çerezler kullanabilir. Tarayıcı ayarlarınızdan çerez tercihlerinizi yönetebilirsiniz. Çerezlerin devre dışı bırakılması bazı işlevlerin kısıtlanmasına neden olabilir." },
+      { "title": "8. İletişim", "body": "Erdem Prefabrik – Fetih Mahallesi, Adana Çevreyolu Caddesi No:119 Pk:42030 BP Petrol Karşısı, Karatay / KONYA • info@erdemprefabrikev.com • +90 332 351 80 60" }
+    ],
+    "footer": "Bu politika, gerektiğinde güncellenebilir. Güncel sürüm Site üzerinde yayımlandığı tarihten itibaren geçerlidir."
+  },
+  "termsPage": {
+    "title": "Kullanım Koşulları",
+    "updated": "Son güncelleme: 2025-01-01",
+    "sections": [
+      { "title": "1. Kabul", "body": "Bu Siteye erişerek ve kullanarak, aşağıda belirtilen koşulları ve ilgili tüm mevzuatı kabul etmiş olursunuz. Koşulları kabul etmiyorsanız Siteyi kullanmayınız." },
+      { "title": "2. Hizmetin Kapsamı", "body": "Site, Erdem Prefabrik'in ürün ve hizmetlerine ilişkin tanıtım, referans ve iletişim kanalıdır. Site içeriği bilgilendirme amaçlıdır; önceden haber verilmeksizin güncellenebilir." },
+      { "title": "3. Fikri Mülkiyet", "body": "Metin, görsel, logo ve tasarımlar dâhil Site içeriğinin tüm hakları Şirkete veya lisans verenlerine aittir. Kaynak gösterilse dahi izinsiz kopyalanamaz, çoğaltılamaz veya dağıtılamaz." },
+      { "title": "4. Kullanım Kuralları", "body": "Siteye zarar verecek, güvenliği tehlikeye atacak işlemler yapmamak; Yanlış/eksik bilgi vermemek, üçüncü kişilerin haklarını ihlal etmemek; Hukuka aykırı içerik iletmemek ve spam faaliyetinde bulunmamak." },
+      { "title": "5. Sorumluluk Reddi", "body": "Site içeriğinin doğruluğu ve güncelliği için makul özen gösterilmekle birlikte hatasız/eksiksiz olacağı garanti edilmez. Site ve bağlantılı hizmetlerin kullanımı sonucunda doğabilecek zararlardan Şirket sorumlu tutulamaz." },
+      { "title": "6. Üçüncü Taraf Bağlantıları", "body": "Site üzerinden verilen üçüncü taraf bağlantılar bilgilendirme amaçlıdır. İçeriklerinden ve güvenliğinden Şirket sorumlu değildir." },
+      { "title": "7. Değişiklik", "body": "Şirket, Kullanım Koşulları'nı dilediği zaman değiştirme hakkını saklı tutar. Güncel metin Site üzerinde yayımlanır ve yayımlandığı anda yürürlüğe girer." },
+      { "title": "8. Uygulanacak Hukuk ve Yetki", "body": "İşbu koşullar Türkiye Cumhuriyeti hukukuna tabidir. Uyuşmazlıklarda Konya mahkemeleri ve icra daireleri yetkilidir." },
+      { "title": "9. İletişim", "body": "Erdem Prefabrik • info@erdemprefabrikev.com • +90 332 351 80 60" }
+    ]
+  },
+  "metadata": {
+    "titleTemplate": "%s | Erdem Prefabrik Konya",
+    "defaultTitle": "Konya Prefabrik | Erdem Prefabrik - Prefabrik Ev, Modüler Yapı, Konteyner",
+    "defaultDescription": "Konya prefabrik ev, modüler yapı ve konteyner çözümleri. Erdem Prefabrik 20+ yıldır Konya Karatay merkezli, Türkiye genelinde prefabrik ev, villa ve şantiye yapıları sunuyor. Ücretsiz keşif ve fiyat teklifi.",
+    "ogImageAlt": "Erdem Prefabrik - Konya Prefabrik"
+  }
+}

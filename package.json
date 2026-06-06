@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap",
+    "postbuild": "node scripts/rewrite-export-urls.js && next-sitemap",
     "split-projects": "node scripts/split-projects.js",
     "generate-favicon": "node scripts/generate-favicon.js",
     "generate-header-logo": "node scripts/generate-header-logo.js",
-    "prebuild": "node scripts/split-projects.js && node scripts/generate-homepage-opt-images.js"
+    "prebuild": "node scripts/split-projects.js && node scripts/translate-projects-en.js && node scripts/generate-homepage-opt-images.js",
+    "translate-projects": "node scripts/translate-projects-en.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -27,6 +28,7 @@
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.539.0",
     "next": "15.4.10",
+    "next-intl": "^4.13.0",
     "next-sitemap": "^4.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
