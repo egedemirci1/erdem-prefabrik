@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { Mail, Phone, Instagram, Facebook, Send, ArrowUp, MessageCircle, CheckCircle } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { isValidPhone, sanitizePhoneInput } from "@/lib/phone";
 
 const Footer = () => {
   const t = useTranslations("footer");
@@ -16,6 +17,7 @@ const Footer = () => {
   const [newsletterMsg, setNewsletterMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [newsletterPhone, setNewsletterPhone] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setIsScrollVisible(window.scrollY > 300);
@@ -127,7 +129,18 @@ const Footer = () => {
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
               </div>
-              <Input id="newsletter-phone" type="tel" placeholder={t("phonePlaceholder")} aria-label={t("phoneAria")} className="w-full sm:w-64 h-12 rounded-xl border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white/40 focus:ring-white/20" />
+              <Input
+                id="newsletter-phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                value={newsletterPhone}
+                onChange={(e) => setNewsletterPhone(sanitizePhoneInput(e.target.value))}
+                maxLength={20}
+                placeholder={t("phonePlaceholder")}
+                aria-label={t("phoneAria")}
+                className="w-full sm:w-64 h-12 rounded-xl border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white/40 focus:ring-white/20"
+              />
               <Button
                 className="bg-white text-accent hover:bg-white/90 h-12 px-6 rounded-xl font-medium"
                 disabled={isSubmitting}
@@ -136,13 +149,12 @@ const Footer = () => {
                     setNewsletterMsg({ type: "success", text: t("subscribeSuccess") });
                     return;
                   }
-                  const input = document.getElementById("newsletter-phone") as HTMLInputElement | null;
-                  const phone = input?.value?.trim() || "";
+                  const phone = newsletterPhone.trim();
                   if (!phone) {
                     setNewsletterMsg({ type: "error", text: t("phoneRequired") });
                     return;
                   }
-                  if (phone.length < 10) {
+                  if (!isValidPhone(phone)) {
                     setNewsletterMsg({ type: "error", text: t("phoneInvalid") });
                     return;
                   }
@@ -159,7 +171,7 @@ const Footer = () => {
                     formDataToSend.append("phone", phone);
                     await fetch(scriptUrl, { method: "POST", mode: "no-cors", body: formDataToSend });
                     setNewsletterMsg({ type: "success", text: t("subscribeSuccess") });
-                    if (input) input.value = "";
+                    setNewsletterPhone("");
                   } catch {
                     setNewsletterMsg({ type: "error", text: t("connectionError") });
                   } finally {

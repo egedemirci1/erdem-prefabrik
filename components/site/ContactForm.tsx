@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { z } from "zod";
+import { isValidPhone, sanitizePhoneInput } from "@/lib/phone";
 
 function sanitize(input: string): string {
   return input
@@ -104,7 +105,8 @@ const ContactForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const nextValue = name === "phone" ? sanitizePhoneInput(value) : value;
+    setFormData({ ...formData, [name]: nextValue });
     if (errors[name as keyof FieldErrors]) {
       setErrors({ ...errors, [name]: undefined });
     }
@@ -133,7 +135,7 @@ const ContactForm = () => {
 
           <div>
             <Label htmlFor="phone" className="text-foreground font-medium">{t("phone")}</Label>
-            <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} required maxLength={20} className={`mt-2 h-12 rounded-xl bg-foreground/5 border-border focus:border-accent focus:ring-accent/20 ${errors.phone ? "border-red-500" : ""}`} placeholder="0533 123 45 67" />
+            <Input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" value={formData.phone} onChange={handleChange} required maxLength={20} className={`mt-2 h-12 rounded-xl bg-foreground/5 border-border focus:border-accent focus:ring-accent/20 ${errors.phone ? "border-red-500" : ""}`} placeholder="0533 123 45 67" />
             {errors.phone && <p className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {errors.phone}</p>}
           </div>
 
