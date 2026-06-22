@@ -75,33 +75,33 @@ export default async function ContactPage({ params }: Props) {
             <div className="mt-4 h-px w-96 mx-auto bg-muted-foreground/80" />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
+            <div className="min-w-0 space-y-8">
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><MapPin className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><MapPin className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("address")}</h3>
                     <p className="text-muted-foreground font-light leading-relaxed">{tCommon("address")}</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><Phone className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><Phone className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("phone")}</h3>
                     <p className="text-muted-foreground font-light">+90 332 351 80 60</p>
                     <p className="text-muted-foreground font-light">+90 533 379 25 88 • +90 533 380 25 88</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><Mail className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><Mail className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("email")}</h3>
                     <a href="mailto:info@erdemprefabrikev.com" className="text-accent hover:underline font-light">info@erdemprefabrikev.com</a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><Instagram className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><Instagram className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("instagram")}</h3>
                     <a href="https://www.instagram.com/prefabrikerdem" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-xl hover:from-pink-600 hover:to-purple-700 transition-all duration-300">
                       <Instagram className="w-4 h-4" />
@@ -109,9 +109,9 @@ export default async function ContactPage({ params }: Props) {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><Facebook className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><Facebook className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("facebook")}</h3>
                     <a href="https://www.facebook.com/erdemprefabrik" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-xl hover:from-blue-600 hover:to-blue-800 transition-all duration-300">
                       <Facebook className="w-4 h-4" />
@@ -119,9 +119,9 @@ export default async function ContactPage({ params }: Props) {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center mr-4"><Clock className="w-5 h-5 text-accent" /></div>
-                  <div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow"><Clock className="h-5 w-5 text-accent" /></div>
+                  <div className="min-w-0">
                     <h3 className="text-2xl font-light text-foreground mb-2">{t("hours")}</h3>
                     <p className="text-muted-foreground font-light">{t("weekdays")}</p>
                     <p className="text-muted-foreground font-light">{t("saturday")}</p>
